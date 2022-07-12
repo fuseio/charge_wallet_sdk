@@ -11,7 +11,7 @@ Future<bool> approvalCallback() async {
 
 void main() async {
   // Your public API key (https://chargeweb3.com)
-  final String PUBLIC_API_KEY = 'pk_7-SPvNJRpeIcAdqxsy8m99Ml';
+  final String PUBLIC_API_KEY = '';
 
   // generate mnemonic
   String mnemonic = Web3.generateMnemonic();
@@ -87,6 +87,8 @@ void main() async {
   final WalletModules walletModules = WalletModules.fromJson(
     walletData['walletModules'],
   );
+
+  // Initiate wallet modules
   web3.setModules(walletModules);
 
   // get wallet
@@ -95,54 +97,4 @@ void main() async {
 
   String walletAddress = wallet["walletAddress"];
   print('walletAddress: $walletAddress');
-
-  // init graph module
-  // Graph graph = Graph();
-
-  // dynamic defaultCommunity = web3.getDefaultCommunity();
-  // // get default community details
-  // dynamic community = await graph.getCommunityByAddress(defaultCommunity);
-  // print('community: $community');
-
-  // // get default community token
-  // dynamic token = await graph.getTokenOfCommunity(defaultCommunity);
-  // print('token: $token');
-
-  // // check if member of default community
-  // bool isMember = await graph.isCommunityMember(
-  //     walletAddress, community["entitiesList"]["address"]);
-  // print('isMember: $isMember');
-
-  // if (!isMember) {
-  //   // join default community
-  //   await api.joinCommunity(web3, walletAddress, defaultCommunity);
-  // }
-
-  // // get default community businesses
-  // dynamic businesses = await api.getBusinessList(web3.getDefaultCommunity());
-  // print('businesses: $businesses');
-
-  // String communityAddress = '0xc6Dae191309BB5efC1b15B96c68A197A0c600145';
-
-  // // get community details
-  // community = await graph.getCommunityByAddress(communityAddress);
-  // print('community: $community');
-
-  // // get community token
-  // token = await graph.getTokenOfCommunity(communityAddress);
-  // print('token: $token');
-
-  // // check if member of community
-  // isMember = await graph.isCommunityMember(
-  //     walletAddress, community["entitiesList"]["address"]);
-  // print('isMember: $isMember');
-
-  // if (!isMember) {
-  //   // join community
-  //   await api.joinCommunity(web3, walletAddress, communityAddress);
-  // }
-
-  // // get community businesses
-  // businesses = await api.getBusinessList(communityAddress);
-  // print('businesses: $businesses');
 }
