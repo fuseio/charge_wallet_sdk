@@ -1,11 +1,19 @@
+# v0.0.1+3
+
+# Fixes
+
+- Minor fix in graph module
+
 # v0.0.1+2
 
-# Updates:
+# Updates
+
 - Added a model for collectible
 
 # v0.0.1+1
 
-# Updates:
+# Updates
+
 - Improve Dio initialization
 
 # v0.0.1

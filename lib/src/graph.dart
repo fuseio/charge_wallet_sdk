@@ -1,18 +1,20 @@
 library graph;
 
 import 'dart:async';
-import 'package:charge_wallet_sdk/models/collectible/collectible.dart';
+
 import 'package:gql/language.dart';
 import 'package:graphql/client.dart';
+
+import 'package:charge_wallet_sdk/constants/variables.dart';
+import 'package:charge_wallet_sdk/models/collectible/collectible.dart';
 import 'package:charge_wallet_sdk/src/queries.dart';
 
 class Graph {
   late final GraphQLClient _clientNFT;
 
-  Graph(
-    String baseUrl,
-    String nftSubgraph,
-  ) {
+  Graph({
+    String nftSubgraph = Variables.FUSE_RPC_URL,
+  }) {
     _clientNFT = GraphQLClient(
       link: HttpLink(nftSubgraph),
       cache: GraphQLCache(),
