@@ -11,24 +11,23 @@ import 'package:charge_wallet_sdk/src/web3.dart';
 
 class ChargeApi {
   late String _jwtToken;
-  late Dio _dio;
+  final Dio _dio;
 
   ChargeApi(
     String publicApiKey, {
     String baseUrl = 'https://api.chargeweb3.com/api',
     List<Interceptor> interceptors = const [],
-  }) {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        queryParameters: {
-          'apiKey': publicApiKey,
-        },
-      ),
-    );
+  }) : _dio = Dio(
+          BaseOptions(
+            baseUrl: baseUrl,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            queryParameters: {
+              'apiKey': publicApiKey,
+            },
+          ),
+        ) {
     if (interceptors.isNotEmpty) {
       _dio.interceptors.addAll(interceptors);
     }
