@@ -207,13 +207,13 @@ abstract class _TradeRequestBody implements TradeRequestBody {
       _$_TradeRequestBody.fromJson;
 
   @override
-  String get currencyIn => throw _privateConstructorUsedError;
+  String get currencyIn;
   @override
-  String get currencyOut => throw _privateConstructorUsedError;
+  String get currencyOut;
   @override
-  String get amountIn => throw _privateConstructorUsedError;
+  String get amountIn;
   @override
-  String get recipient => throw _privateConstructorUsedError;
+  String get recipient;
   @override
   @JsonKey(ignore: true)
   _$$_TradeRequestBodyCopyWith<_$_TradeRequestBody> get copyWith =>

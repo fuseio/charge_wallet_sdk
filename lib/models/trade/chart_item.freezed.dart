@@ -200,13 +200,13 @@ abstract class _ChartItem implements ChartItem {
       _$_ChartItem.fromJson;
 
   @override
-  num get timestamp => throw _privateConstructorUsedError;
+  num get timestamp;
   @override
-  double get priceChange => throw _privateConstructorUsedError;
+  double get priceChange;
   @override
-  double get previousPrice => throw _privateConstructorUsedError;
+  double get previousPrice;
   @override
-  double get currentPrice => throw _privateConstructorUsedError;
+  double get currentPrice;
   @override
   @JsonKey(ignore: true)
   _$$_ChartItemCopyWith<_$_ChartItem> get copyWith =>

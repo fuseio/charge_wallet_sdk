@@ -3,10 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'wallet_modules.freezed.dart';
 part 'wallet_modules.g.dart';
 
-@immutable
 @freezed
 class WalletModules with _$WalletModules {
-  @JsonSerializable()
   factory WalletModules({
     @JsonKey(name: 'GuardianManager') required String guardianManager,
     @JsonKey(name: 'LockManager') required String lockManager,

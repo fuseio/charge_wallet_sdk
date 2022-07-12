@@ -276,21 +276,21 @@ abstract class _Trade implements Trade {
   factory _Trade.fromJson(Map<String, dynamic> json) = _$_Trade.fromJson;
 
   @override
-  String get inputAmount => throw _privateConstructorUsedError;
+  String get inputAmount;
   @override
-  String get outputAmount => throw _privateConstructorUsedError;
+  String get outputAmount;
   @override
-  List<String> get route => throw _privateConstructorUsedError;
+  List<String> get route;
   @override
-  String get inputToken => throw _privateConstructorUsedError;
+  String get inputToken;
   @override
-  String get outputToken => throw _privateConstructorUsedError;
+  String get outputToken;
   @override
-  String get executionPrice => throw _privateConstructorUsedError;
+  String get executionPrice;
   @override
-  String get nextMidPrice => throw _privateConstructorUsedError;
+  String get nextMidPrice;
   @override
-  String get priceImpact => throw _privateConstructorUsedError;
+  String get priceImpact;
   @override
   @JsonKey(ignore: true)
   _$$_TradeCopyWith<_$_Trade> get copyWith =>

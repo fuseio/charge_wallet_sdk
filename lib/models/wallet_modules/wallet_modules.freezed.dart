@@ -222,7 +222,6 @@ class __$$_WalletModulesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable()
 class _$_WalletModules implements _WalletModules {
   _$_WalletModules(
