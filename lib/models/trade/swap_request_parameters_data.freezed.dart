@@ -208,13 +208,13 @@ abstract class _SwapRequestParametersData implements SwapRequestParametersData {
       _$_SwapRequestParametersData.fromJson;
 
   @override
-  String get methodName => throw _privateConstructorUsedError;
+  String get methodName;
   @override
-  List<dynamic> get args => throw _privateConstructorUsedError;
+  List<dynamic> get args;
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
-  Map<String, dynamic> get rawTxn => throw _privateConstructorUsedError;
+  Map<String, dynamic> get rawTxn;
   @override
   @JsonKey(ignore: true)
   _$$_SwapRequestParametersDataCopyWith<_$_SwapRequestParametersData>
