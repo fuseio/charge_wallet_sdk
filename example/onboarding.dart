@@ -1,13 +1,8 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:charge_wallet_sdk/charge_wallet_sdk.dart';
 // import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-Future<bool> approvalCallback() async {
-  return true;
-}
 
 void main() async {
   // Your public API key (https://chargeweb3.com)
