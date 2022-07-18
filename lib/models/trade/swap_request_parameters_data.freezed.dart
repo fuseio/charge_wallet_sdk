@@ -192,7 +192,9 @@ class _$_SwapRequestParametersData implements _SwapRequestParametersData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SwapRequestParametersDataToJson(this);
+    return _$$_SwapRequestParametersDataToJson(
+      this,
+    );
   }
 }
 

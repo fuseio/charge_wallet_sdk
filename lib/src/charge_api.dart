@@ -236,24 +236,24 @@ class ChargeApi {
     return response.data['data'];
   }
 
-  Future<dynamic> getAvailableUpgrades(
+  Future<List<WalletUpgrade>> getAvailableUpgrades(
     String walletAddress,
   ) async {
     Response response = await _dio.get(
       '/v0/wallets/wallets/upgrades/available/$walletAddress',
       options: options,
     );
-    return response.data['data'];
+    return WalletUpgrade.walletUpgradesFromJson(response.data['data']);
   }
 
   Future<dynamic> installUpgrades(
     Web3 web3,
     String walletAddress,
-    String disableModuleName,
     String disableModuleAddress,
     String enableModuleAddress,
-    String upgradeId,
-  ) async {
+    String upgradeId, {
+    String disableModuleName = 'TransferManager',
+  }) async {
     Map<String, dynamic> relayParams = await web3.addModule(
       walletAddress,
       disableModuleName,

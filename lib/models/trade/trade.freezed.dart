@@ -258,7 +258,9 @@ class _$_Trade implements _Trade {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TradeToJson(this);
+    return _$$_TradeToJson(
+      this,
+    );
   }
 }
 

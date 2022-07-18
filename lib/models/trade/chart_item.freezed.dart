@@ -185,7 +185,9 @@ class _$_ChartItem implements _ChartItem {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChartItemToJson(this);
+    return _$$_ChartItemToJson(
+      this,
+    );
   }
 }
 

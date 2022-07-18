@@ -242,7 +242,9 @@ class _$_Collectible implements _Collectible {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CollectibleToJson(this);
+    return _$$_CollectibleToJson(
+      this,
+    );
   }
 }
 

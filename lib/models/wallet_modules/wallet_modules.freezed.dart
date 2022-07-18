@@ -334,7 +334,9 @@ class _$_WalletModules implements _WalletModules {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WalletModulesToJson(this);
+    return _$$_WalletModulesToJson(
+      this,
+    );
   }
 }
 
