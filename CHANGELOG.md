@@ -1,3 +1,9 @@
+# v0.0.1+7
+
+## Updates
+
+- Convert `TokenInfo` to a union type class with `ERC20` and `ERC721`
+
 # v0.0.1+6
 
 ## Fixes
