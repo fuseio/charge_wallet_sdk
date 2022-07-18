@@ -32,8 +32,6 @@ mixin _$TokenInfo {
   String get symbol => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _nameFromJson)
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _decimalsFromJson)
-  int? get decimals => throw _privateConstructorUsedError;
   @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
   String get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'balance')
@@ -45,7 +43,7 @@ mixin _$TokenInfo {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -71,7 +69,7 @@ mixin _$TokenInfo {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -97,7 +95,7 @@ mixin _$TokenInfo {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -150,8 +148,6 @@ abstract class $TokenInfoCopyWith<$Res> {
       {String symbol,
       @JsonKey(fromJson: _nameFromJson)
           String name,
-      @JsonKey(fromJson: _decimalsFromJson)
-          int? decimals,
       @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
           String address,
       @JsonKey(name: 'balance')
@@ -170,7 +166,6 @@ class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
   $Res call({
     Object? symbol = freezed,
     Object? name = freezed,
-    Object? decimals = freezed,
     Object? address = freezed,
     Object? amount = freezed,
   }) {
@@ -183,10 +178,6 @@ class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
-          ? _value.decimals
-          : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -209,7 +200,7 @@ abstract class _$$ERC20CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
       @JsonKey(fromJson: _nameFromJson)
           String name,
       @JsonKey(fromJson: _decimalsFromJson)
-          int? decimals,
+          int decimals,
       @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
           String address,
       @JsonKey(name: 'balance')
@@ -245,7 +236,7 @@ class __$$ERC20CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
       decimals: decimals == freezed
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -284,7 +275,7 @@ class _$ERC20 extends ERC20 {
   final String name;
   @override
   @JsonKey(fromJson: _decimalsFromJson)
-  final int? decimals;
+  final int decimals;
   @override
   @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
   final String address;
@@ -335,7 +326,7 @@ class _$ERC20 extends ERC20 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -364,7 +355,7 @@ class _$ERC20 extends ERC20 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -393,7 +384,7 @@ class _$ERC20 extends ERC20 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -463,7 +454,7 @@ abstract class ERC20 extends TokenInfo {
       @JsonKey(fromJson: _nameFromJson)
           required final String name,
       @JsonKey(fromJson: _decimalsFromJson)
-          final int? decimals,
+          final int decimals,
       @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
           required final String address,
       @JsonKey(name: 'balance')
@@ -477,9 +468,8 @@ abstract class ERC20 extends TokenInfo {
   @override
   @JsonKey(fromJson: _nameFromJson)
   String get name;
-  @override
   @JsonKey(fromJson: _decimalsFromJson)
-  int? get decimals;
+  int get decimals;
   @override
   @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
   String get address;
@@ -628,7 +618,7 @@ class _$ERC721 extends ERC721 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -657,7 +647,7 @@ class _$ERC721 extends ERC721 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -686,7 +676,7 @@ class _$ERC721 extends ERC721 {
             @JsonKey(fromJson: _nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
+                int decimals,
             @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
@@ -770,7 +760,6 @@ abstract class ERC721 extends TokenInfo {
   @override
   @JsonKey(fromJson: _nameFromJson)
   String get name;
-  @override
   @JsonKey(fromJson: _decimalsFromJson)
   int? get decimals;
   @override

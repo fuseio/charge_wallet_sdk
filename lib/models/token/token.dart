@@ -32,7 +32,7 @@ class TokenInfo with _$TokenInfo {
     @JsonKey(
       fromJson: _decimalsFromJson,
     )
-        int? decimals,
+        int decimals,
     @JsonKey(
       name: 'contractAddress',
       fromJson: _addressFromJson,
