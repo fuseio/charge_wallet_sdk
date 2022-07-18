@@ -1,3 +1,9 @@
+# v0.0.1+6
+
+## Fixes
+
+- Export `TokenInfo`
+  
 # v0.0.1+5
 
 ## Updates
