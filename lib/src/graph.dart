@@ -10,28 +10,28 @@ import 'package:charge_wallet_sdk/models/collectible/collectible.dart';
 import 'package:charge_wallet_sdk/src/queries.dart';
 
 class Graph {
-  late final GraphQLClient _clientNFT;
+  final GraphQLClient _clientNFT;
 
   Graph({
     String nftSubgraph = Variables.FUSE_RPC_URL,
-  }) {
-    _clientNFT = GraphQLClient(
-      link: HttpLink(nftSubgraph),
-      cache: GraphQLCache(),
-    );
-  }
+  }) : _clientNFT = GraphQLClient(
+          link: HttpLink(nftSubgraph),
+          cache: GraphQLCache(),
+        );
 
   Future<Map<String, Map<int, Collectible>>> getCollectiblesByOwner(
     String owner,
   ) async {
-    QueryResult result = await _clientNFT.query(QueryOptions(
-      document: parseString(getCollectiblesByOwnerQuery),
-      fetchPolicy: FetchPolicy.networkOnly,
-      cacheRereadPolicy: CacheRereadPolicy.ignoreAll,
-      variables: <String, dynamic>{
-        'owner': owner.toLowerCase(),
-      },
-    ));
+    QueryResult result = await _clientNFT.query(
+      QueryOptions(
+        document: parseString(getCollectiblesByOwnerQuery),
+        fetchPolicy: FetchPolicy.networkOnly,
+        cacheRereadPolicy: CacheRereadPolicy.ignoreAll,
+        variables: <String, dynamic>{
+          'owner': owner.toLowerCase(),
+        },
+      ),
+    );
     if (result.hasException) {
       throw 'Error! Get Collectibles By Owner request failed - owner: $owner ${result.exception.toString()}';
     } else {
