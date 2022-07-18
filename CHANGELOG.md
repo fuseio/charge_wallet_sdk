@@ -1,3 +1,11 @@
+# v0.0.1+5
+
+## Updates
+
+- Added `WalletUpgrade` & `TokenInfo` && `TokenList` models
+
+- Added FuseExplorer module. For now it make use only of get token list API. [Fuse Explorer API](https://explorer.fuse.io/api-docs).
+
 # v0.0.1+4
 
 ## Fixes

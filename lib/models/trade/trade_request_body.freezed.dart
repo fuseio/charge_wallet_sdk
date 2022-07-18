@@ -192,7 +192,9 @@ class _$_TradeRequestBody implements _TradeRequestBody {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TradeRequestBodyToJson(this);
+    return _$$_TradeRequestBodyToJson(
+      this,
+    );
   }
 }
 
