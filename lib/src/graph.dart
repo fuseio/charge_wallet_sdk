@@ -13,7 +13,7 @@ class Graph {
   final GraphQLClient _clientNFT;
 
   Graph({
-    String nftSubgraph = Variables.FUSE_RPC_URL,
+    String nftSubgraph = Variables.NFT_SUB_GRAPH_URL,
   }) : _clientNFT = GraphQLClient(
           link: HttpLink(nftSubgraph),
           cache: GraphQLCache(),

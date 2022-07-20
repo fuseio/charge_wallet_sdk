@@ -5,6 +5,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:path/path.dart' show basename;
+
 import 'package:charge_wallet_sdk/constants/enum.dart';
 import 'package:charge_wallet_sdk/models/models.dart';
 import 'package:charge_wallet_sdk/src/web3.dart';
@@ -15,11 +16,10 @@ class ChargeApi {
 
   ChargeApi(
     String publicApiKey, {
-    String baseUrl = 'https://api.chargeweb3.com/api',
     List<Interceptor> interceptors = const [],
   }) : _dio = Dio(
           BaseOptions(
-            baseUrl: baseUrl,
+            baseUrl: 'https://api.chargeweb3.com/api',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -121,7 +121,6 @@ class ChargeApi {
         'appName': appName,
       },
     );
-    print('response ${response.toString()}');
     if (response.data['token'] != '') {
       _jwtToken = response.data['token'];
       return response.data['token'];
@@ -157,7 +156,6 @@ class ChargeApi {
   }) async {
     dynamic wallet = await getWallet();
     if (wallet != null && wallet['walletAddress'] != null) {
-      print('Wallet already exists - wallet: $wallet');
       return wallet;
     }
     Response response = await _dio.post(
@@ -197,7 +195,6 @@ class ChargeApi {
         'apy': data['apy'],
         'version': data['version'],
         'paddedVersion': data['paddedVersion'],
-        'isBlacklisted': data['isBlacklisted'] ?? false,
       };
     } else {
       return {};
@@ -307,14 +304,10 @@ class ChargeApi {
 
   Future<dynamic> getJob(String id) async {
     Response response = await _dio.get(
-      '/v0/jobs/$id',
+      '/v0/wallets/jobs/$id',
       options: options,
     );
-    if (response.data['data'] != null) {
-      return response.data['data'];
-    } else {
-      return null;
-    }
+    return response.data['data'];
   }
 
   Future<dynamic> getWalletByPhoneNumber(
@@ -436,8 +429,9 @@ class ChargeApi {
     Web3 web3,
     String walletAddress,
     String tokenAddress,
-    String receiverAddress,
-    String tokensAmount, {
+    String receiverAddress, {
+    String? tokensAmount,
+    BigInt? amountInWei,
     String network = 'fuse',
     String? externalId,
   }) async {
@@ -445,7 +439,8 @@ class ChargeApi {
       walletAddress,
       tokenAddress,
       receiverAddress,
-      tokensAmount,
+      tokensAmount: tokensAmount,
+      amountInWei: amountInWei,
       network: network,
       externalId: externalId,
     );
@@ -485,7 +480,6 @@ class ChargeApi {
     String walletAddress,
     String contractAddress,
     String data, {
-    String? network,
     num? ethAmount,
     BigInt? amountInWei,
     Map? transactionBody,
@@ -495,7 +489,6 @@ class ChargeApi {
       walletAddress,
       contractAddress,
       data,
-      network: network,
       ethAmount: ethAmount,
       amountInWei: amountInWei,
       transactionBody: transactionBody,
@@ -515,7 +508,6 @@ class ChargeApi {
     String tokenAddress,
     String contractAddress,
     String data, {
-    String? network,
     num? tokensAmount,
     BigInt? amountInWei,
     Map? transactionBody,
@@ -529,7 +521,6 @@ class ChargeApi {
       data,
       amountInWei: amountInWei,
       tokensAmount: tokensAmount,
-      network: network,
       transactionBody: transactionBody,
       txMetadata: txMetadata,
     );
@@ -658,7 +649,7 @@ class ChargeApi {
 
   // End of Wallet API's
 
-  // Start of Voltage API's
+  // Start of Trade API's
 
   Future<SwapRequestParametersData> requestParameters(
     TradeRequestBody swapRequestBody,
@@ -684,9 +675,8 @@ class ChargeApi {
   }
 
   Future<String> price(
-    String tokenAddress, {
-    String currency = 'usd',
-  }) async {
+    String tokenAddress,
+  ) async {
     Response response = await _dio.get(
       '/v0/trade/price/$tokenAddress',
     );
@@ -713,5 +703,14 @@ class ChargeApi {
         .map((stats) => ChartItem.fromJson(stats))
         .toList();
   }
-  // End of Voltage API's
+
+  Future<List<TokenInfo>> fetchToken() async {
+    Response response = await _dio.get(
+      '/v0/trade/tokens',
+    );
+    return (response.data['data']['tokens'] as List<dynamic>)
+        .map((stats) => TokenInfo.fromJson(stats))
+        .toList();
+  }
+  // End of Trade API's
 }
