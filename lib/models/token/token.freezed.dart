@@ -16,6 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 TokenInfo _$TokenInfoFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
+    case 'lp':
+      return LiquidityPoolToken.fromJson(json);
+    case 'bridged':
+      return BridgedToken.fromJson(json);
+    case 'misc':
+      return MiscToken.fromJson(json);
     case 'ERC-20':
       return ERC20.fromJson(json);
     case 'ERC-721':
@@ -30,32 +36,52 @@ TokenInfo _$TokenInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TokenInfo {
   String get symbol => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _nameFromJson)
+  int get decimals => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: nameFromJson)
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+  @JsonKey(fromJson: addressFromJson)
   String get address => throw _privateConstructorUsedError;
-  @JsonKey(name: 'balance')
-  BigInt get amount => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
         erc20,
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
@@ -66,22 +92,43 @@ mixin _$TokenInfo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -92,22 +139,43 @@ mixin _$TokenInfo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -117,18 +185,27 @@ mixin _$TokenInfo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
     required TResult Function(ERC20 value) erc20,
     required TResult Function(ERC721 value) erc721,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
     required TResult orElse(),
@@ -146,12 +223,9 @@ abstract class $TokenInfoCopyWith<$Res> {
       _$TokenInfoCopyWithImpl<$Res>;
   $Res call(
       {String symbol,
-      @JsonKey(fromJson: _nameFromJson)
-          String name,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
-          String address,
-      @JsonKey(name: 'balance')
-          BigInt amount});
+      int decimals,
+      @JsonKey(fromJson: nameFromJson) String name,
+      @JsonKey(fromJson: addressFromJson) String address});
 }
 
 /// @nodoc
@@ -165,15 +239,19 @@ class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
   @override
   $Res call({
     Object? symbol = freezed,
+    Object? decimals = freezed,
     Object? name = freezed,
     Object? address = freezed,
-    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       symbol: symbol == freezed
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
+      decimals: decimals == freezed
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -182,12 +260,1074 @@ class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
     ));
   }
+}
+
+/// @nodoc
+abstract class _$$LiquidityPoolTokenCopyWith<$Res>
+    implements $TokenInfoCopyWith<$Res> {
+  factory _$$LiquidityPoolTokenCopyWith(_$LiquidityPoolToken value,
+          $Res Function(_$LiquidityPoolToken) then) =
+      __$$LiquidityPoolTokenCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String symbol,
+      int decimals,
+      @JsonKey(fromJson: nameFromJson) String name,
+      @JsonKey(fromJson: addressFromJson) String address,
+      List<LpUnderlyingTokens> underlyingTokens});
+}
+
+/// @nodoc
+class __$$LiquidityPoolTokenCopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res>
+    implements _$$LiquidityPoolTokenCopyWith<$Res> {
+  __$$LiquidityPoolTokenCopyWithImpl(
+      _$LiquidityPoolToken _value, $Res Function(_$LiquidityPoolToken) _then)
+      : super(_value, (v) => _then(v as _$LiquidityPoolToken));
+
+  @override
+  _$LiquidityPoolToken get _value => super._value as _$LiquidityPoolToken;
+
+  @override
+  $Res call({
+    Object? symbol = freezed,
+    Object? decimals = freezed,
+    Object? name = freezed,
+    Object? address = freezed,
+    Object? underlyingTokens = freezed,
+  }) {
+    return _then(_$LiquidityPoolToken(
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      decimals: decimals == freezed
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      underlyingTokens: underlyingTokens == freezed
+          ? _value.underlyingTokens
+          : underlyingTokens // ignore: cast_nullable_to_non_nullable
+              as List<LpUnderlyingTokens>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$LiquidityPoolToken extends LiquidityPoolToken {
+  const _$LiquidityPoolToken(
+      {required this.symbol,
+      required this.decimals,
+      @JsonKey(fromJson: nameFromJson) required this.name,
+      @JsonKey(fromJson: addressFromJson) required this.address,
+      required this.underlyingTokens,
+      final String? $type})
+      : $type = $type ?? 'lp',
+        super._();
+
+  factory _$LiquidityPoolToken.fromJson(Map<String, dynamic> json) =>
+      _$$LiquidityPoolTokenFromJson(json);
+
+  @override
+  final String symbol;
+  @override
+  final int decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  final String name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  final String address;
+  @override
+  final List<LpUnderlyingTokens> underlyingTokens;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TokenInfo.liquidityPoolToken(symbol: $symbol, decimals: $decimals, name: $name, address: $address, underlyingTokens: $underlyingTokens)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LiquidityPoolToken &&
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.decimals, decimals) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality()
+                .equals(other.underlyingTokens, underlyingTokens));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(decimals),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(underlyingTokens));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$LiquidityPoolTokenCopyWith<_$LiquidityPoolToken> get copyWith =>
+      __$$LiquidityPoolTokenCopyWithImpl<_$LiquidityPoolToken>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc20,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc721,
+  }) {
+    return liquidityPoolToken(
+        symbol, decimals, name, address, underlyingTokens);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+  }) {
+    return liquidityPoolToken?.call(
+        symbol, decimals, name, address, underlyingTokens);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+    required TResult orElse(),
+  }) {
+    if (liquidityPoolToken != null) {
+      return liquidityPoolToken(
+          symbol, decimals, name, address, underlyingTokens);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
+    required TResult Function(ERC20 value) erc20,
+    required TResult Function(ERC721 value) erc721,
+  }) {
+    return liquidityPoolToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+  }) {
+    return liquidityPoolToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+    required TResult orElse(),
+  }) {
+    if (liquidityPoolToken != null) {
+      return liquidityPoolToken(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LiquidityPoolTokenToJson(
+      this,
+    );
+  }
+}
+
+abstract class LiquidityPoolToken extends TokenInfo implements IToken {
+  const factory LiquidityPoolToken(
+          {required final String symbol,
+          required final int decimals,
+          @JsonKey(fromJson: nameFromJson) required final String name,
+          @JsonKey(fromJson: addressFromJson) required final String address,
+          required final List<LpUnderlyingTokens> underlyingTokens}) =
+      _$LiquidityPoolToken;
+  const LiquidityPoolToken._() : super._();
+
+  factory LiquidityPoolToken.fromJson(Map<String, dynamic> json) =
+      _$LiquidityPoolToken.fromJson;
+
+  @override
+  String get symbol;
+  @override
+  int get decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  String get name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  String get address;
+  List<LpUnderlyingTokens> get underlyingTokens;
+  @override
+  @JsonKey(ignore: true)
+  _$$LiquidityPoolTokenCopyWith<_$LiquidityPoolToken> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BridgedTokenCopyWith<$Res>
+    implements $TokenInfoCopyWith<$Res> {
+  factory _$$BridgedTokenCopyWith(
+          _$BridgedToken value, $Res Function(_$BridgedToken) then) =
+      __$$BridgedTokenCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String symbol,
+      String logoURI,
+      int decimals,
+      @JsonKey(fromJson: nameFromJson) String name,
+      @JsonKey(fromJson: addressFromJson) String address});
+}
+
+/// @nodoc
+class __$$BridgedTokenCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+    implements _$$BridgedTokenCopyWith<$Res> {
+  __$$BridgedTokenCopyWithImpl(
+      _$BridgedToken _value, $Res Function(_$BridgedToken) _then)
+      : super(_value, (v) => _then(v as _$BridgedToken));
+
+  @override
+  _$BridgedToken get _value => super._value as _$BridgedToken;
+
+  @override
+  $Res call({
+    Object? symbol = freezed,
+    Object? logoURI = freezed,
+    Object? decimals = freezed,
+    Object? name = freezed,
+    Object? address = freezed,
+  }) {
+    return _then(_$BridgedToken(
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      logoURI: logoURI == freezed
+          ? _value.logoURI
+          : logoURI // ignore: cast_nullable_to_non_nullable
+              as String,
+      decimals: decimals == freezed
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$BridgedToken extends BridgedToken {
+  const _$BridgedToken(
+      {required this.symbol,
+      required this.logoURI,
+      required this.decimals,
+      @JsonKey(fromJson: nameFromJson) required this.name,
+      @JsonKey(fromJson: addressFromJson) required this.address,
+      final String? $type})
+      : $type = $type ?? 'bridged',
+        super._();
+
+  factory _$BridgedToken.fromJson(Map<String, dynamic> json) =>
+      _$$BridgedTokenFromJson(json);
+
+  @override
+  final String symbol;
+  @override
+  final String logoURI;
+  @override
+  final int decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  final String name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  final String address;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TokenInfo.bridgedToken(symbol: $symbol, logoURI: $logoURI, decimals: $decimals, name: $name, address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BridgedToken &&
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.logoURI, logoURI) &&
+            const DeepCollectionEquality().equals(other.decimals, decimals) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.address, address));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(logoURI),
+      const DeepCollectionEquality().hash(decimals),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(address));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$BridgedTokenCopyWith<_$BridgedToken> get copyWith =>
+      __$$BridgedTokenCopyWithImpl<_$BridgedToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc20,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc721,
+  }) {
+    return bridgedToken(symbol, logoURI, decimals, name, address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+  }) {
+    return bridgedToken?.call(symbol, logoURI, decimals, name, address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+    required TResult orElse(),
+  }) {
+    if (bridgedToken != null) {
+      return bridgedToken(symbol, logoURI, decimals, name, address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
+    required TResult Function(ERC20 value) erc20,
+    required TResult Function(ERC721 value) erc721,
+  }) {
+    return bridgedToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+  }) {
+    return bridgedToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+    required TResult orElse(),
+  }) {
+    if (bridgedToken != null) {
+      return bridgedToken(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BridgedTokenToJson(
+      this,
+    );
+  }
+}
+
+abstract class BridgedToken extends TokenInfo implements IToken {
+  const factory BridgedToken(
+          {required final String symbol,
+          required final String logoURI,
+          required final int decimals,
+          @JsonKey(fromJson: nameFromJson) required final String name,
+          @JsonKey(fromJson: addressFromJson) required final String address}) =
+      _$BridgedToken;
+  const BridgedToken._() : super._();
+
+  factory BridgedToken.fromJson(Map<String, dynamic> json) =
+      _$BridgedToken.fromJson;
+
+  @override
+  String get symbol;
+  String get logoURI;
+  @override
+  int get decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  String get name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  String get address;
+  @override
+  @JsonKey(ignore: true)
+  _$$BridgedTokenCopyWith<_$BridgedToken> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MiscTokenCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
+  factory _$$MiscTokenCopyWith(
+          _$MiscToken value, $Res Function(_$MiscToken) then) =
+      __$$MiscTokenCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String symbol,
+      String logoURI,
+      int decimals,
+      @JsonKey(fromJson: nameFromJson) String name,
+      @JsonKey(fromJson: addressFromJson) String address});
+}
+
+/// @nodoc
+class __$$MiscTokenCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+    implements _$$MiscTokenCopyWith<$Res> {
+  __$$MiscTokenCopyWithImpl(
+      _$MiscToken _value, $Res Function(_$MiscToken) _then)
+      : super(_value, (v) => _then(v as _$MiscToken));
+
+  @override
+  _$MiscToken get _value => super._value as _$MiscToken;
+
+  @override
+  $Res call({
+    Object? symbol = freezed,
+    Object? logoURI = freezed,
+    Object? decimals = freezed,
+    Object? name = freezed,
+    Object? address = freezed,
+  }) {
+    return _then(_$MiscToken(
+      symbol: symbol == freezed
+          ? _value.symbol
+          : symbol // ignore: cast_nullable_to_non_nullable
+              as String,
+      logoURI: logoURI == freezed
+          ? _value.logoURI
+          : logoURI // ignore: cast_nullable_to_non_nullable
+              as String,
+      decimals: decimals == freezed
+          ? _value.decimals
+          : decimals // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$MiscToken extends MiscToken {
+  const _$MiscToken(
+      {required this.symbol,
+      required this.logoURI,
+      required this.decimals,
+      @JsonKey(fromJson: nameFromJson) required this.name,
+      @JsonKey(fromJson: addressFromJson) required this.address,
+      final String? $type})
+      : $type = $type ?? 'misc',
+        super._();
+
+  factory _$MiscToken.fromJson(Map<String, dynamic> json) =>
+      _$$MiscTokenFromJson(json);
+
+  @override
+  final String symbol;
+  @override
+  final String logoURI;
+  @override
+  final int decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  final String name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  final String address;
+
+  @JsonKey(name: 'type')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'TokenInfo.miscToken(symbol: $symbol, logoURI: $logoURI, decimals: $decimals, name: $name, address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MiscToken &&
+            const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.logoURI, logoURI) &&
+            const DeepCollectionEquality().equals(other.decimals, decimals) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.address, address));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(logoURI),
+      const DeepCollectionEquality().hash(decimals),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(address));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$MiscTokenCopyWith<_$MiscToken> get copyWith =>
+      __$$MiscTokenCopyWithImpl<_$MiscToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc20,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)
+        erc721,
+  }) {
+    return miscToken(symbol, logoURI, decimals, name, address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+  }) {
+    return miscToken?.call(symbol, logoURI, decimals, name, address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String symbol,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc20,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
+                String name,
+            @JsonKey(fromJson: _decimalsFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
+                String address,
+            @JsonKey(name: 'balance')
+                BigInt amount)?
+        erc721,
+    required TResult orElse(),
+  }) {
+    if (miscToken != null) {
+      return miscToken(symbol, logoURI, decimals, name, address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
+    required TResult Function(ERC20 value) erc20,
+    required TResult Function(ERC721 value) erc721,
+  }) {
+    return miscToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+  }) {
+    return miscToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
+    TResult Function(ERC20 value)? erc20,
+    TResult Function(ERC721 value)? erc721,
+    required TResult orElse(),
+  }) {
+    if (miscToken != null) {
+      return miscToken(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MiscTokenToJson(
+      this,
+    );
+  }
+}
+
+abstract class MiscToken extends TokenInfo implements IToken {
+  const factory MiscToken(
+          {required final String symbol,
+          required final String logoURI,
+          required final int decimals,
+          @JsonKey(fromJson: nameFromJson) required final String name,
+          @JsonKey(fromJson: addressFromJson) required final String address}) =
+      _$MiscToken;
+  const MiscToken._() : super._();
+
+  factory MiscToken.fromJson(Map<String, dynamic> json) = _$MiscToken.fromJson;
+
+  @override
+  String get symbol;
+  String get logoURI;
+  @override
+  int get decimals;
+  @override
+  @JsonKey(fromJson: nameFromJson)
+  String get name;
+  @override
+  @JsonKey(fromJson: addressFromJson)
+  String get address;
+  @override
+  @JsonKey(ignore: true)
+  _$$MiscTokenCopyWith<_$MiscToken> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -197,11 +1337,11 @@ abstract class _$$ERC20CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
   @override
   $Res call(
       {String symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           String name,
       @JsonKey(fromJson: _decimalsFromJson)
           int decimals,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           String address,
       @JsonKey(name: 'balance')
           BigInt amount});
@@ -254,11 +1394,11 @@ class __$$ERC20CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
 class _$ERC20 extends ERC20 {
   const _$ERC20(
       {required this.symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           required this.name,
       @JsonKey(fromJson: _decimalsFromJson)
           this.decimals = 0,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           required this.address,
       @JsonKey(name: 'balance')
           required this.amount,
@@ -271,13 +1411,13 @@ class _$ERC20 extends ERC20 {
   @override
   final String symbol;
   @override
-  @JsonKey(fromJson: _nameFromJson)
+  @JsonKey(fromJson: nameFromJson)
   final String name;
   @override
   @JsonKey(fromJson: _decimalsFromJson)
   final int decimals;
   @override
-  @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+  @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
   final String address;
   @override
   @JsonKey(name: 'balance')
@@ -323,22 +1463,43 @@ class _$ERC20 extends ERC20 {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
         erc20,
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
@@ -352,22 +1513,43 @@ class _$ERC20 extends ERC20 {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -381,22 +1563,43 @@ class _$ERC20 extends ERC20 {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -412,6 +1615,9 @@ class _$ERC20 extends ERC20 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
     required TResult Function(ERC20 value) erc20,
     required TResult Function(ERC721 value) erc721,
   }) {
@@ -421,6 +1627,9 @@ class _$ERC20 extends ERC20 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
   }) {
@@ -430,6 +1639,9 @@ class _$ERC20 extends ERC20 {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
     required TResult orElse(),
@@ -448,14 +1660,14 @@ class _$ERC20 extends ERC20 {
   }
 }
 
-abstract class ERC20 extends TokenInfo {
+abstract class ERC20 extends TokenInfo implements IToken {
   const factory ERC20(
       {required final String symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           required final String name,
       @JsonKey(fromJson: _decimalsFromJson)
           final int decimals,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           required final String address,
       @JsonKey(name: 'balance')
           required final BigInt amount}) = _$ERC20;
@@ -466,14 +1678,14 @@ abstract class ERC20 extends TokenInfo {
   @override
   String get symbol;
   @override
-  @JsonKey(fromJson: _nameFromJson)
+  @JsonKey(fromJson: nameFromJson)
   String get name;
+  @override
   @JsonKey(fromJson: _decimalsFromJson)
   int get decimals;
   @override
-  @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+  @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
   String get address;
-  @override
   @JsonKey(name: 'balance')
   BigInt get amount;
   @override
@@ -488,11 +1700,11 @@ abstract class _$$ERC721CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
   @override
   $Res call(
       {String symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           String name,
       @JsonKey(fromJson: _decimalsFromJson)
-          int? decimals,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+          int decimals,
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           String address,
       @JsonKey(name: 'balance')
           BigInt amount});
@@ -527,7 +1739,7 @@ class __$$ERC721CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
       decimals: decimals == freezed
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -545,11 +1757,11 @@ class __$$ERC721CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
 class _$ERC721 extends ERC721 {
   const _$ERC721(
       {required this.symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           required this.name,
       @JsonKey(fromJson: _decimalsFromJson)
-          this.decimals = 0,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+          required this.decimals,
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           required this.address,
       @JsonKey(name: 'balance')
           required this.amount,
@@ -563,13 +1775,13 @@ class _$ERC721 extends ERC721 {
   @override
   final String symbol;
   @override
-  @JsonKey(fromJson: _nameFromJson)
+  @JsonKey(fromJson: nameFromJson)
   final String name;
   @override
   @JsonKey(fromJson: _decimalsFromJson)
-  final int? decimals;
+  final int decimals;
   @override
-  @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+  @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
   final String address;
   @override
   @JsonKey(name: 'balance')
@@ -615,22 +1827,43 @@ class _$ERC721 extends ERC721 {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)
+        liquidityPoolToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        bridgedToken,
+    required TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)
+        miscToken,
+    required TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
         erc20,
     required TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)
@@ -644,22 +1877,43 @@ class _$ERC721 extends ERC721 {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -673,22 +1927,43 @@ class _$ERC721 extends ERC721 {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address,
+            List<LpUnderlyingTokens> underlyingTokens)?
+        liquidityPoolToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        bridgedToken,
+    TResult Function(
+            String symbol,
+            String logoURI,
+            int decimals,
+            @JsonKey(fromJson: nameFromJson) String name,
+            @JsonKey(fromJson: addressFromJson) String address)?
+        miscToken,
+    TResult Function(
+            String symbol,
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
                 int decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
     TResult Function(
             String symbol,
-            @JsonKey(fromJson: _nameFromJson)
+            @JsonKey(fromJson: nameFromJson)
                 String name,
             @JsonKey(fromJson: _decimalsFromJson)
-                int? decimals,
-            @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+                int decimals,
+            @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
                 String address,
             @JsonKey(name: 'balance')
                 BigInt amount)?
@@ -704,6 +1979,9 @@ class _$ERC721 extends ERC721 {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LiquidityPoolToken value) liquidityPoolToken,
+    required TResult Function(BridgedToken value) bridgedToken,
+    required TResult Function(MiscToken value) miscToken,
     required TResult Function(ERC20 value) erc20,
     required TResult Function(ERC721 value) erc721,
   }) {
@@ -713,6 +1991,9 @@ class _$ERC721 extends ERC721 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
   }) {
@@ -722,6 +2003,9 @@ class _$ERC721 extends ERC721 {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult Function(BridgedToken value)? bridgedToken,
+    TResult Function(MiscToken value)? miscToken,
     TResult Function(ERC20 value)? erc20,
     TResult Function(ERC721 value)? erc721,
     required TResult orElse(),
@@ -740,14 +2024,14 @@ class _$ERC721 extends ERC721 {
   }
 }
 
-abstract class ERC721 extends TokenInfo {
+abstract class ERC721 extends TokenInfo implements IToken {
   const factory ERC721(
       {required final String symbol,
-      @JsonKey(fromJson: _nameFromJson)
+      @JsonKey(fromJson: nameFromJson)
           required final String name,
       @JsonKey(fromJson: _decimalsFromJson)
-          final int? decimals,
-      @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+          required final int decimals,
+      @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
           required final String address,
       @JsonKey(name: 'balance')
           required final BigInt amount}) = _$ERC721;
@@ -758,14 +2042,14 @@ abstract class ERC721 extends TokenInfo {
   @override
   String get symbol;
   @override
-  @JsonKey(fromJson: _nameFromJson)
+  @JsonKey(fromJson: nameFromJson)
   String get name;
+  @override
   @JsonKey(fromJson: _decimalsFromJson)
-  int? get decimals;
+  int get decimals;
   @override
-  @JsonKey(name: 'contractAddress', fromJson: _addressFromJson)
+  @JsonKey(name: 'contractAddress', fromJson: addressFromJson)
   String get address;
-  @override
   @JsonKey(name: 'balance')
   BigInt get amount;
   @override

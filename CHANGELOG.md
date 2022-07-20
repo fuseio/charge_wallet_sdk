@@ -1,4 +1,14 @@
-# v0.0.1+7
+# v0.0.1+8
+
+## Fixes
+
+- Graph wrong url
+
+## Updates
+
+- `TokenInfo` - added new token types
+
+- # v0.0.1+7
 
 ## Updates
 

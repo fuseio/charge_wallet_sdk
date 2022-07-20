@@ -10,6 +10,6 @@ abstract class FuseExplorer {
   factory FuseExplorer(Dio dio, {String baseUrl}) = _FuseExplorer;
 
   // Get list of ERC-20 tokens owned by address.
-  @GET("?module=account&action=tokenlist", autoCastResponse: false)
+  @GET("?module=account&action=tokenlist")
   Future<TokenList> getTokenList(@Query("address") String address);
 }
