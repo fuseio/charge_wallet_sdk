@@ -1,19 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'chart_item.dart';
+part of 'interval_stats.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ChartItem _$$_ChartItemFromJson(Map<String, dynamic> json) => _$_ChartItem(
+_$_IntervalStats _$$_IntervalStatsFromJson(Map<String, dynamic> json) =>
+    _$_IntervalStats(
       timestamp: json['timestamp'] as num,
       priceChange: (json['priceChange'] as num).toDouble(),
       previousPrice: (json['previousPrice'] as num).toDouble(),
       currentPrice: (json['currentPrice'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_ChartItemToJson(_$_ChartItem instance) =>
+Map<String, dynamic> _$$_IntervalStatsToJson(_$_IntervalStats instance) =>
     <String, dynamic>{
       'timestamp': instance.timestamp,
       'priceChange': instance.priceChange,

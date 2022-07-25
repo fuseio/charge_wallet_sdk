@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'chart_item.dart';
+part of 'interval_stats.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ChartItem _$ChartItemFromJson(Map<String, dynamic> json) {
-  return _ChartItem.fromJson(json);
+IntervalStats _$IntervalStatsFromJson(Map<String, dynamic> json) {
+  return _IntervalStats.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ChartItem {
+mixin _$IntervalStats {
   num get timestamp => throw _privateConstructorUsedError;
   double get priceChange => throw _privateConstructorUsedError;
   double get previousPrice => throw _privateConstructorUsedError;
@@ -27,14 +27,15 @@ mixin _$ChartItem {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ChartItemCopyWith<ChartItem> get copyWith =>
+  $IntervalStatsCopyWith<IntervalStats> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChartItemCopyWith<$Res> {
-  factory $ChartItemCopyWith(ChartItem value, $Res Function(ChartItem) then) =
-      _$ChartItemCopyWithImpl<$Res>;
+abstract class $IntervalStatsCopyWith<$Res> {
+  factory $IntervalStatsCopyWith(
+          IntervalStats value, $Res Function(IntervalStats) then) =
+      _$IntervalStatsCopyWithImpl<$Res>;
   $Res call(
       {num timestamp,
       double priceChange,
@@ -43,12 +44,13 @@ abstract class $ChartItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ChartItemCopyWithImpl<$Res> implements $ChartItemCopyWith<$Res> {
-  _$ChartItemCopyWithImpl(this._value, this._then);
+class _$IntervalStatsCopyWithImpl<$Res>
+    implements $IntervalStatsCopyWith<$Res> {
+  _$IntervalStatsCopyWithImpl(this._value, this._then);
 
-  final ChartItem _value;
+  final IntervalStats _value;
   // ignore: unused_field
-  final $Res Function(ChartItem) _then;
+  final $Res Function(IntervalStats) _then;
 
   @override
   $Res call({
@@ -79,10 +81,11 @@ class _$ChartItemCopyWithImpl<$Res> implements $ChartItemCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_ChartItemCopyWith<$Res> implements $ChartItemCopyWith<$Res> {
-  factory _$$_ChartItemCopyWith(
-          _$_ChartItem value, $Res Function(_$_ChartItem) then) =
-      __$$_ChartItemCopyWithImpl<$Res>;
+abstract class _$$_IntervalStatsCopyWith<$Res>
+    implements $IntervalStatsCopyWith<$Res> {
+  factory _$$_IntervalStatsCopyWith(
+          _$_IntervalStats value, $Res Function(_$_IntervalStats) then) =
+      __$$_IntervalStatsCopyWithImpl<$Res>;
   @override
   $Res call(
       {num timestamp,
@@ -92,14 +95,15 @@ abstract class _$$_ChartItemCopyWith<$Res> implements $ChartItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChartItemCopyWithImpl<$Res> extends _$ChartItemCopyWithImpl<$Res>
-    implements _$$_ChartItemCopyWith<$Res> {
-  __$$_ChartItemCopyWithImpl(
-      _$_ChartItem _value, $Res Function(_$_ChartItem) _then)
-      : super(_value, (v) => _then(v as _$_ChartItem));
+class __$$_IntervalStatsCopyWithImpl<$Res>
+    extends _$IntervalStatsCopyWithImpl<$Res>
+    implements _$$_IntervalStatsCopyWith<$Res> {
+  __$$_IntervalStatsCopyWithImpl(
+      _$_IntervalStats _value, $Res Function(_$_IntervalStats) _then)
+      : super(_value, (v) => _then(v as _$_IntervalStats));
 
   @override
-  _$_ChartItem get _value => super._value as _$_ChartItem;
+  _$_IntervalStats get _value => super._value as _$_IntervalStats;
 
   @override
   $Res call({
@@ -108,7 +112,7 @@ class __$$_ChartItemCopyWithImpl<$Res> extends _$ChartItemCopyWithImpl<$Res>
     Object? previousPrice = freezed,
     Object? currentPrice = freezed,
   }) {
-    return _then(_$_ChartItem(
+    return _then(_$_IntervalStats(
       timestamp: timestamp == freezed
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
@@ -131,15 +135,15 @@ class __$$_ChartItemCopyWithImpl<$Res> extends _$ChartItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChartItem implements _ChartItem {
-  _$_ChartItem(
+class _$_IntervalStats implements _IntervalStats {
+  _$_IntervalStats(
       {required this.timestamp,
       required this.priceChange,
       required this.previousPrice,
       required this.currentPrice});
 
-  factory _$_ChartItem.fromJson(Map<String, dynamic> json) =>
-      _$$_ChartItemFromJson(json);
+  factory _$_IntervalStats.fromJson(Map<String, dynamic> json) =>
+      _$$_IntervalStatsFromJson(json);
 
   @override
   final num timestamp;
@@ -152,14 +156,14 @@ class _$_ChartItem implements _ChartItem {
 
   @override
   String toString() {
-    return 'ChartItem(timestamp: $timestamp, priceChange: $priceChange, previousPrice: $previousPrice, currentPrice: $currentPrice)';
+    return 'IntervalStats(timestamp: $timestamp, priceChange: $priceChange, previousPrice: $previousPrice, currentPrice: $currentPrice)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChartItem &&
+            other is _$_IntervalStats &&
             const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
             const DeepCollectionEquality()
                 .equals(other.priceChange, priceChange) &&
@@ -180,26 +184,26 @@ class _$_ChartItem implements _ChartItem {
 
   @JsonKey(ignore: true)
   @override
-  _$$_ChartItemCopyWith<_$_ChartItem> get copyWith =>
-      __$$_ChartItemCopyWithImpl<_$_ChartItem>(this, _$identity);
+  _$$_IntervalStatsCopyWith<_$_IntervalStats> get copyWith =>
+      __$$_IntervalStatsCopyWithImpl<_$_IntervalStats>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChartItemToJson(
+    return _$$_IntervalStatsToJson(
       this,
     );
   }
 }
 
-abstract class _ChartItem implements ChartItem {
-  factory _ChartItem(
+abstract class _IntervalStats implements IntervalStats {
+  factory _IntervalStats(
       {required final num timestamp,
       required final double priceChange,
       required final double previousPrice,
-      required final double currentPrice}) = _$_ChartItem;
+      required final double currentPrice}) = _$_IntervalStats;
 
-  factory _ChartItem.fromJson(Map<String, dynamic> json) =
-      _$_ChartItem.fromJson;
+  factory _IntervalStats.fromJson(Map<String, dynamic> json) =
+      _$_IntervalStats.fromJson;
 
   @override
   num get timestamp;
@@ -211,6 +215,6 @@ abstract class _ChartItem implements ChartItem {
   double get currentPrice;
   @override
   @JsonKey(ignore: true)
-  _$$_ChartItemCopyWith<_$_ChartItem> get copyWith =>
+  _$$_IntervalStatsCopyWith<_$_IntervalStats> get copyWith =>
       throw _privateConstructorUsedError;
 }

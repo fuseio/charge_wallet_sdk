@@ -651,14 +651,14 @@ class ChargeApi {
 
   // Start of Trade API's
 
-  Future<SwapRequestParametersData> requestParameters(
+  Future<TradeCallParameters> requestParameters(
     TradeRequestBody swapRequestBody,
   ) async {
     Response response = await _dio.post(
       '/v0/trade/swap/requestparameters',
       data: swapRequestBody.toJson(),
     );
-    return SwapRequestParametersData.fromJson(response.data);
+    return TradeCallParameters.fromJson(response.data);
   }
 
   Future<Trade> quote(
@@ -692,7 +692,7 @@ class ChargeApi {
     return response.data['data']['priceChange'] ?? '0';
   }
 
-  Future<List<ChartItem>> interval(
+  Future<List<IntervalStats>> interval(
     String tokenAddress,
     TimeFrame timeFrame,
   ) async {
@@ -700,7 +700,7 @@ class ChargeApi {
       '/v0/trade/pricechange/interval/${timeFrame.name.toUpperCase()}/$tokenAddress',
     );
     return (response.data['data'] as List<dynamic>)
-        .map((stats) => ChartItem.fromJson(stats))
+        .map((stats) => IntervalStats.fromJson(stats))
         .toList();
   }
 

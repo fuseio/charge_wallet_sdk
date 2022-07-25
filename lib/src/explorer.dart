@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:charge_wallet_sdk/models/token/tokenlist.dart';
+import 'package:charge_wallet_sdk/models/token/token_list.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
