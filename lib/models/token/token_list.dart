@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:charge_wallet_sdk/models/token/token.dart';
 
-part 'tokenlist.freezed.dart';
-part 'tokenlist.g.dart';
+part 'token_list.freezed.dart';
+part 'token_list.g.dart';
 
 @freezed
 class TokenList with _$TokenList {

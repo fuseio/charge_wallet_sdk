@@ -1,8 +1,8 @@
 export './collectible/collectible.dart';
 export './token/token.dart';
-export './token/tokenlist.dart';
-export './trade/chart_item.dart';
-export './trade/swap_request_parameters_data.dart';
+export 'token/token_list.dart';
+export 'trade/interval_stats.dart';
+export 'trade/trade_call_parameters.dart';
 export './trade/trade.dart';
 export './trade/trade_request_body.dart';
 export './wallet_modules/wallet_modules.dart';

@@ -1,4 +1,4 @@
-import 'package:charge_wallet_sdk/models/token/tokenlist.dart';
+import 'package:charge_wallet_sdk/models/token/token_list.dart';
 import 'package:charge_wallet_sdk/src/explorer.dart';
 import 'package:dio/dio.dart';
 

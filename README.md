@@ -8,13 +8,14 @@ Dart library for accessing Charge Wallet APIs.
   * Interact with [Charge Wallet API](https://docs.chargeweb3.com/docs/overview-2)
 * Web3
   * Using [`web3dart`](https://pub.dev/packages/web3dart) library in a simplified way
-  * Initialized with any Ethereum based network (and custom network id)
-  * BIP 39 mnemonic - generate, extract private key from
-  * Native - get balance, send, sign off-chain transactions to transfer using relay
+  * BIP 39 mnemonic - generate, extract private key from mnemonic
+  * Sign off-chain transactions to transfer using relay
   * [ERC20 based tokens](https://eips.ethereum.org/EIPS/eip-20) - get balance, send, sign off-chain transactions to transfer using relay
   * Contracts - read/write
 * GraphQL
   * Interact with [The Graph](https://thegraph.com/) for easier blockchain data reads
+* FuseExplorer
+  * Interact with [Fuse Explorer](https://explorer.fuse.io/) for fetching user assets on the Fuse Network
 
 ## Install
 

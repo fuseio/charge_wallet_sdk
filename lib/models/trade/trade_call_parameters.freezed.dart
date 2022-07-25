@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'swap_request_parameters_data.dart';
+part of 'trade_call_parameters.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SwapRequestParametersData _$SwapRequestParametersDataFromJson(
-    Map<String, dynamic> json) {
-  return _SwapRequestParametersData.fromJson(json);
+TradeCallParameters _$TradeCallParametersFromJson(Map<String, dynamic> json) {
+  return _TradeCallParameters.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SwapRequestParametersData {
+mixin _$TradeCallParameters {
   String get methodName => throw _privateConstructorUsedError;
   List<dynamic> get args => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
@@ -28,15 +27,15 @@ mixin _$SwapRequestParametersData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SwapRequestParametersDataCopyWith<SwapRequestParametersData> get copyWith =>
+  $TradeCallParametersCopyWith<TradeCallParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwapRequestParametersDataCopyWith<$Res> {
-  factory $SwapRequestParametersDataCopyWith(SwapRequestParametersData value,
-          $Res Function(SwapRequestParametersData) then) =
-      _$SwapRequestParametersDataCopyWithImpl<$Res>;
+abstract class $TradeCallParametersCopyWith<$Res> {
+  factory $TradeCallParametersCopyWith(
+          TradeCallParameters value, $Res Function(TradeCallParameters) then) =
+      _$TradeCallParametersCopyWithImpl<$Res>;
   $Res call(
       {String methodName,
       List<dynamic> args,
@@ -45,13 +44,13 @@ abstract class $SwapRequestParametersDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SwapRequestParametersDataCopyWithImpl<$Res>
-    implements $SwapRequestParametersDataCopyWith<$Res> {
-  _$SwapRequestParametersDataCopyWithImpl(this._value, this._then);
+class _$TradeCallParametersCopyWithImpl<$Res>
+    implements $TradeCallParametersCopyWith<$Res> {
+  _$TradeCallParametersCopyWithImpl(this._value, this._then);
 
-  final SwapRequestParametersData _value;
+  final TradeCallParameters _value;
   // ignore: unused_field
-  final $Res Function(SwapRequestParametersData) _then;
+  final $Res Function(TradeCallParameters) _then;
 
   @override
   $Res call({
@@ -82,12 +81,11 @@ class _$SwapRequestParametersDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_SwapRequestParametersDataCopyWith<$Res>
-    implements $SwapRequestParametersDataCopyWith<$Res> {
-  factory _$$_SwapRequestParametersDataCopyWith(
-          _$_SwapRequestParametersData value,
-          $Res Function(_$_SwapRequestParametersData) then) =
-      __$$_SwapRequestParametersDataCopyWithImpl<$Res>;
+abstract class _$$_TradeCallParametersCopyWith<$Res>
+    implements $TradeCallParametersCopyWith<$Res> {
+  factory _$$_TradeCallParametersCopyWith(_$_TradeCallParameters value,
+          $Res Function(_$_TradeCallParameters) then) =
+      __$$_TradeCallParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {String methodName,
@@ -97,17 +95,15 @@ abstract class _$$_SwapRequestParametersDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SwapRequestParametersDataCopyWithImpl<$Res>
-    extends _$SwapRequestParametersDataCopyWithImpl<$Res>
-    implements _$$_SwapRequestParametersDataCopyWith<$Res> {
-  __$$_SwapRequestParametersDataCopyWithImpl(
-      _$_SwapRequestParametersData _value,
-      $Res Function(_$_SwapRequestParametersData) _then)
-      : super(_value, (v) => _then(v as _$_SwapRequestParametersData));
+class __$$_TradeCallParametersCopyWithImpl<$Res>
+    extends _$TradeCallParametersCopyWithImpl<$Res>
+    implements _$$_TradeCallParametersCopyWith<$Res> {
+  __$$_TradeCallParametersCopyWithImpl(_$_TradeCallParameters _value,
+      $Res Function(_$_TradeCallParameters) _then)
+      : super(_value, (v) => _then(v as _$_TradeCallParameters));
 
   @override
-  _$_SwapRequestParametersData get _value =>
-      super._value as _$_SwapRequestParametersData;
+  _$_TradeCallParameters get _value => super._value as _$_TradeCallParameters;
 
   @override
   $Res call({
@@ -116,7 +112,7 @@ class __$$_SwapRequestParametersDataCopyWithImpl<$Res>
     Object? value = freezed,
     Object? rawTxn = freezed,
   }) {
-    return _then(_$_SwapRequestParametersData(
+    return _then(_$_TradeCallParameters(
       methodName: methodName == freezed
           ? _value.methodName
           : methodName // ignore: cast_nullable_to_non_nullable
@@ -139,15 +135,15 @@ class __$$_SwapRequestParametersDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SwapRequestParametersData implements _SwapRequestParametersData {
-  _$_SwapRequestParametersData(
+class _$_TradeCallParameters implements _TradeCallParameters {
+  _$_TradeCallParameters(
       {required this.methodName,
       required this.args,
       required this.value,
       required this.rawTxn});
 
-  factory _$_SwapRequestParametersData.fromJson(Map<String, dynamic> json) =>
-      _$$_SwapRequestParametersDataFromJson(json);
+  factory _$_TradeCallParameters.fromJson(Map<String, dynamic> json) =>
+      _$$_TradeCallParametersFromJson(json);
 
   @override
   final String methodName;
@@ -160,14 +156,14 @@ class _$_SwapRequestParametersData implements _SwapRequestParametersData {
 
   @override
   String toString() {
-    return 'SwapRequestParametersData(methodName: $methodName, args: $args, value: $value, rawTxn: $rawTxn)';
+    return 'TradeCallParameters(methodName: $methodName, args: $args, value: $value, rawTxn: $rawTxn)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SwapRequestParametersData &&
+            other is _$_TradeCallParameters &&
             const DeepCollectionEquality()
                 .equals(other.methodName, methodName) &&
             const DeepCollectionEquality().equals(other.args, args) &&
@@ -186,28 +182,27 @@ class _$_SwapRequestParametersData implements _SwapRequestParametersData {
 
   @JsonKey(ignore: true)
   @override
-  _$$_SwapRequestParametersDataCopyWith<_$_SwapRequestParametersData>
-      get copyWith => __$$_SwapRequestParametersDataCopyWithImpl<
-          _$_SwapRequestParametersData>(this, _$identity);
+  _$$_TradeCallParametersCopyWith<_$_TradeCallParameters> get copyWith =>
+      __$$_TradeCallParametersCopyWithImpl<_$_TradeCallParameters>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SwapRequestParametersDataToJson(
+    return _$$_TradeCallParametersToJson(
       this,
     );
   }
 }
 
-abstract class _SwapRequestParametersData implements SwapRequestParametersData {
-  factory _SwapRequestParametersData(
-          {required final String methodName,
-          required final List<dynamic> args,
-          required final String value,
-          required final Map<String, dynamic> rawTxn}) =
-      _$_SwapRequestParametersData;
+abstract class _TradeCallParameters implements TradeCallParameters {
+  factory _TradeCallParameters(
+      {required final String methodName,
+      required final List<dynamic> args,
+      required final String value,
+      required final Map<String, dynamic> rawTxn}) = _$_TradeCallParameters;
 
-  factory _SwapRequestParametersData.fromJson(Map<String, dynamic> json) =
-      _$_SwapRequestParametersData.fromJson;
+  factory _TradeCallParameters.fromJson(Map<String, dynamic> json) =
+      _$_TradeCallParameters.fromJson;
 
   @override
   String get methodName;
@@ -219,6 +214,6 @@ abstract class _SwapRequestParametersData implements SwapRequestParametersData {
   Map<String, dynamic> get rawTxn;
   @override
   @JsonKey(ignore: true)
-  _$$_SwapRequestParametersDataCopyWith<_$_SwapRequestParametersData>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TradeCallParametersCopyWith<_$_TradeCallParameters> get copyWith =>
+      throw _privateConstructorUsedError;
 }

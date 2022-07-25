@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'swap_request_parameters_data.dart';
+part of 'trade_call_parameters.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SwapRequestParametersData _$$_SwapRequestParametersDataFromJson(
+_$_TradeCallParameters _$$_TradeCallParametersFromJson(
         Map<String, dynamic> json) =>
-    _$_SwapRequestParametersData(
+    _$_TradeCallParameters(
       methodName: json['methodName'] as String,
       args: json['args'] as List<dynamic>,
       value: json['value'] as String,
       rawTxn: json['rawTxn'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$_SwapRequestParametersDataToJson(
-        _$_SwapRequestParametersData instance) =>
+Map<String, dynamic> _$$_TradeCallParametersToJson(
+        _$_TradeCallParameters instance) =>
     <String, dynamic>{
       'methodName': instance.methodName,
       'args': instance.args,

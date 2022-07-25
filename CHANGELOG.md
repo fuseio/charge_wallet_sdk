@@ -1,3 +1,9 @@
+# v0.0.2
+
+## Updates
+
+- Rename models
+
 # v0.0.1+8
 
 ## Fixes
