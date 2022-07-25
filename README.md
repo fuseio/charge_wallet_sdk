@@ -15,7 +15,7 @@ Dart library for accessing Charge Wallet APIs.
 * GraphQL
   * Interact with [The Graph](https://thegraph.com/) for easier blockchain data reads
 * FuseExplorer
-  * Interact with [Fuse Explorer](https://explorer.fuse.io/) for fetching user assets on the Fuse Network
+  * Interact with [Fuse Explorer API](https://explorer.fuse.io/api-docs) for fetching user assets on the Fuse Network
 
 ## Install
 
