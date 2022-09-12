@@ -1,3 +1,9 @@
+# v0.0.2+1
+
+## Fixes
+
+- `transferTokenOffChain` should interact with `transferManager` and not with `nftTransfer`
+
 # v0.0.2
 
 ## Updates

@@ -329,7 +329,7 @@ class Web3 {
     String encodedData = '0x' +
         (await getEncodedDataForContractCall(
           contractName,
-          _modules.nftTransfer!,
+          _modules.transferManager,
           methodName,
           [
             wallet,
