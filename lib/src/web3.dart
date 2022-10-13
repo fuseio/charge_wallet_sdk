@@ -69,13 +69,13 @@ class Web3 {
   }
 
   Future<EtherAmount> getBalance({String? address}) async {
-    EthereumAddress a;
+    EthereumAddress ethereumAddress;
     if (address != null && address != "") {
-      a = EthereumAddress.fromHex(address);
+      ethereumAddress = EthereumAddress.fromHex(address);
     } else {
-      a = await _credentials.extractAddress();
+      ethereumAddress = await _credentials.extractAddress();
     }
-    return await _client.getBalance(a);
+    return _client.getBalance(ethereumAddress);
   }
 
   Future<DeployedContract> _contract(
@@ -97,7 +97,7 @@ class Web3 {
     List<dynamic> params,
   ) async {
     DeployedContract contract = await _contract(contractName, contractAddress);
-    return await _client.call(
+    return _client.call(
       contract: contract,
       function: contract.function(functionName),
       params: params,

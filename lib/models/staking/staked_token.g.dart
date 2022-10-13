@@ -12,9 +12,9 @@ _$_StakedToken _$$_StakedTokenFromJson(Map<String, dynamic> json) =>
       tokenSymbol: json['tokenSymbol'] as String,
       tokenName: json['tokenName'] as String,
       tokenLogoURI: json['tokenLogoURI'] as String,
-      stakedAmount: json['stakedAmount'] as String,
-      stakedAmountUSD: json['stakedAmountUSD'] as String,
-      earnedAmountUSD: json['earnedAmountUSD'] as String,
+      stakedAmount: (json['stakedAmount'] as num).toDouble(),
+      stakedAmountUSD: (json['stakedAmountUSD'] as num).toDouble(),
+      earnedAmountUSD: (json['earnedAmountUSD'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_StakedTokenToJson(_$_StakedToken instance) =>
@@ -31,8 +31,8 @@ Map<String, dynamic> _$$_StakedTokenToJson(_$_StakedToken instance) =>
 _$_StakedTokenResponse _$$_StakedTokenResponseFromJson(
         Map<String, dynamic> json) =>
     _$_StakedTokenResponse(
-      totalStakedAmountUSD: json['totalStakedAmountUSD'] as String,
-      totalEarnedAmountUSD: json['totalEarnedAmountUSD'] as String,
+      totalStakedAmountUSD: (json['totalStakedAmountUSD'] as num).toDouble(),
+      totalEarnedAmountUSD: (json['totalEarnedAmountUSD'] as num).toDouble(),
       stakedTokens: (json['stakedTokens'] as List<dynamic>)
           .map((e) => StakedToken.fromJson(e as Map<String, dynamic>))
           .toList(),

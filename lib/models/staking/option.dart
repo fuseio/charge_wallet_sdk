@@ -12,7 +12,7 @@ class StakingOption with _$StakingOption {
     required String tokenSymbol,
     required String tokenName,
     required String tokenLogoURI,
-    required String stakingApr,
+    required double stakingApr,
   }) = _StakingOption;
 
   factory StakingOption.fromJson(Map<String, dynamic> json) =>

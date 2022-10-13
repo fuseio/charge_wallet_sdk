@@ -24,9 +24,9 @@ mixin _$StakedToken {
   String get tokenSymbol => throw _privateConstructorUsedError;
   String get tokenName => throw _privateConstructorUsedError;
   String get tokenLogoURI => throw _privateConstructorUsedError;
-  String get stakedAmount => throw _privateConstructorUsedError;
-  String get stakedAmountUSD => throw _privateConstructorUsedError;
-  String get earnedAmountUSD => throw _privateConstructorUsedError;
+  double get stakedAmount => throw _privateConstructorUsedError;
+  double get stakedAmountUSD => throw _privateConstructorUsedError;
+  double get earnedAmountUSD => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,9 +44,9 @@ abstract class $StakedTokenCopyWith<$Res> {
       String tokenSymbol,
       String tokenName,
       String tokenLogoURI,
-      String stakedAmount,
-      String stakedAmountUSD,
-      String earnedAmountUSD});
+      double stakedAmount,
+      double stakedAmountUSD,
+      double earnedAmountUSD});
 }
 
 /// @nodoc
@@ -87,15 +87,15 @@ class _$StakedTokenCopyWithImpl<$Res> implements $StakedTokenCopyWith<$Res> {
       stakedAmount: stakedAmount == freezed
           ? _value.stakedAmount
           : stakedAmount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       stakedAmountUSD: stakedAmountUSD == freezed
           ? _value.stakedAmountUSD
           : stakedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       earnedAmountUSD: earnedAmountUSD == freezed
           ? _value.earnedAmountUSD
           : earnedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -112,9 +112,9 @@ abstract class _$$_StakedTokenCopyWith<$Res>
       String tokenSymbol,
       String tokenName,
       String tokenLogoURI,
-      String stakedAmount,
-      String stakedAmountUSD,
-      String earnedAmountUSD});
+      double stakedAmount,
+      double stakedAmountUSD,
+      double earnedAmountUSD});
 }
 
 /// @nodoc
@@ -157,15 +157,15 @@ class __$$_StakedTokenCopyWithImpl<$Res> extends _$StakedTokenCopyWithImpl<$Res>
       stakedAmount: stakedAmount == freezed
           ? _value.stakedAmount
           : stakedAmount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       stakedAmountUSD: stakedAmountUSD == freezed
           ? _value.stakedAmountUSD
           : stakedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       earnedAmountUSD: earnedAmountUSD == freezed
           ? _value.earnedAmountUSD
           : earnedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -194,11 +194,11 @@ class _$_StakedToken implements _StakedToken {
   @override
   final String tokenLogoURI;
   @override
-  final String stakedAmount;
+  final double stakedAmount;
   @override
-  final String stakedAmountUSD;
+  final double stakedAmountUSD;
   @override
-  final String earnedAmountUSD;
+  final double earnedAmountUSD;
 
   @override
   String toString() {
@@ -256,9 +256,9 @@ abstract class _StakedToken implements StakedToken {
       required final String tokenSymbol,
       required final String tokenName,
       required final String tokenLogoURI,
-      required final String stakedAmount,
-      required final String stakedAmountUSD,
-      required final String earnedAmountUSD}) = _$_StakedToken;
+      required final double stakedAmount,
+      required final double stakedAmountUSD,
+      required final double earnedAmountUSD}) = _$_StakedToken;
 
   factory _StakedToken.fromJson(Map<String, dynamic> json) =
       _$_StakedToken.fromJson;
@@ -272,11 +272,11 @@ abstract class _StakedToken implements StakedToken {
   @override
   String get tokenLogoURI;
   @override
-  String get stakedAmount;
+  double get stakedAmount;
   @override
-  String get stakedAmountUSD;
+  double get stakedAmountUSD;
   @override
-  String get earnedAmountUSD;
+  double get earnedAmountUSD;
   @override
   @JsonKey(ignore: true)
   _$$_StakedTokenCopyWith<_$_StakedToken> get copyWith =>
@@ -289,8 +289,8 @@ StakedTokenResponse _$StakedTokenResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StakedTokenResponse {
-  String get totalStakedAmountUSD => throw _privateConstructorUsedError;
-  String get totalEarnedAmountUSD => throw _privateConstructorUsedError;
+  double get totalStakedAmountUSD => throw _privateConstructorUsedError;
+  double get totalEarnedAmountUSD => throw _privateConstructorUsedError;
   List<StakedToken> get stakedTokens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -305,8 +305,8 @@ abstract class $StakedTokenResponseCopyWith<$Res> {
           StakedTokenResponse value, $Res Function(StakedTokenResponse) then) =
       _$StakedTokenResponseCopyWithImpl<$Res>;
   $Res call(
-      {String totalStakedAmountUSD,
-      String totalEarnedAmountUSD,
+      {double totalStakedAmountUSD,
+      double totalEarnedAmountUSD,
       List<StakedToken> stakedTokens});
 }
 
@@ -329,11 +329,11 @@ class _$StakedTokenResponseCopyWithImpl<$Res>
       totalStakedAmountUSD: totalStakedAmountUSD == freezed
           ? _value.totalStakedAmountUSD
           : totalStakedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       totalEarnedAmountUSD: totalEarnedAmountUSD == freezed
           ? _value.totalEarnedAmountUSD
           : totalEarnedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       stakedTokens: stakedTokens == freezed
           ? _value.stakedTokens
           : stakedTokens // ignore: cast_nullable_to_non_nullable
@@ -350,8 +350,8 @@ abstract class _$$_StakedTokenResponseCopyWith<$Res>
       __$$_StakedTokenResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String totalStakedAmountUSD,
-      String totalEarnedAmountUSD,
+      {double totalStakedAmountUSD,
+      double totalEarnedAmountUSD,
       List<StakedToken> stakedTokens});
 }
 
@@ -376,11 +376,11 @@ class __$$_StakedTokenResponseCopyWithImpl<$Res>
       totalStakedAmountUSD: totalStakedAmountUSD == freezed
           ? _value.totalStakedAmountUSD
           : totalStakedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       totalEarnedAmountUSD: totalEarnedAmountUSD == freezed
           ? _value.totalEarnedAmountUSD
           : totalEarnedAmountUSD // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       stakedTokens: stakedTokens == freezed
           ? _value.stakedTokens
           : stakedTokens // ignore: cast_nullable_to_non_nullable
@@ -401,9 +401,9 @@ class _$_StakedTokenResponse implements _StakedTokenResponse {
       _$$_StakedTokenResponseFromJson(json);
 
   @override
-  final String totalStakedAmountUSD;
+  final double totalStakedAmountUSD;
   @override
-  final String totalEarnedAmountUSD;
+  final double totalEarnedAmountUSD;
   @override
   final List<StakedToken> stakedTokens;
 
@@ -449,17 +449,17 @@ class _$_StakedTokenResponse implements _StakedTokenResponse {
 
 abstract class _StakedTokenResponse implements StakedTokenResponse {
   factory _StakedTokenResponse(
-      {required final String totalStakedAmountUSD,
-      required final String totalEarnedAmountUSD,
+      {required final double totalStakedAmountUSD,
+      required final double totalEarnedAmountUSD,
       required final List<StakedToken> stakedTokens}) = _$_StakedTokenResponse;
 
   factory _StakedTokenResponse.fromJson(Map<String, dynamic> json) =
       _$_StakedTokenResponse.fromJson;
 
   @override
-  String get totalStakedAmountUSD;
+  double get totalStakedAmountUSD;
   @override
-  String get totalEarnedAmountUSD;
+  double get totalEarnedAmountUSD;
   @override
   List<StakedToken> get stakedTokens;
   @override

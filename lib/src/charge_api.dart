@@ -8,6 +8,10 @@ import 'package:path/path.dart' show basename;
 
 import 'package:charge_wallet_sdk/constants/enum.dart';
 import 'package:charge_wallet_sdk/models/models.dart';
+import 'package:charge_wallet_sdk/models/staking/option.dart';
+import 'package:charge_wallet_sdk/models/staking/stake.dart';
+import 'package:charge_wallet_sdk/models/staking/staked_token.dart';
+import 'package:charge_wallet_sdk/models/staking/unstake.dart';
 import 'package:charge_wallet_sdk/src/web3.dart';
 
 class ChargeApi {
@@ -713,4 +717,71 @@ class ChargeApi {
         .toList();
   }
   // End of Trade API's
+
+  // Start of Staking API's
+
+  Future<List<StakingOption>> getStakingOptions() async {
+    Response response = await _dio.get(
+      '/v0/staking/staking_options',
+    );
+    return StakingOption.optionsFromJson(response.data);
+  }
+
+  Future<dynamic> stake(
+    Web3 web3,
+    StakeRequestBody stakeRequestBody,
+  ) async {
+    Response response = await _dio.post(
+      '/v0/staking/stake',
+      data: stakeRequestBody.toJson(),
+    );
+    final StakeResponseBody stakeResponseBody = StakeResponseBody.fromJson(
+      response.data,
+    );
+    return approveTokenAndCallContract(
+      web3,
+      stakeRequestBody.accountAddress,
+      stakeRequestBody.tokenAddress,
+      stakeResponseBody.contractAddress,
+      stakeResponseBody.encodedABI.replaceFirst(
+        '0x',
+        '',
+      ),
+    );
+  }
+
+  Future<dynamic> unstake(
+    Web3 web3,
+    UnstakeRequestBody unstakeRequestBody,
+  ) async {
+    Response response = await _dio.post(
+      '/v0/staking/unstake',
+      data: unstakeRequestBody.toJson(),
+    );
+    final UnstakeResponseBody unstakeResponseBody =
+        UnstakeResponseBody.fromJson(
+      response.data,
+    );
+    return approveTokenAndCallContract(
+      web3,
+      unstakeRequestBody.accountAddress,
+      unstakeRequestBody.tokenAddress,
+      unstakeResponseBody.contractAddress,
+      unstakeResponseBody.encodedABI.replaceFirst(
+        '0x',
+        '',
+      ),
+    );
+  }
+
+  Future<StakedTokenResponse> getStakedTokens(
+    String walletAddress,
+  ) async {
+    Response response = await _dio.get(
+      '/v0/staking/staked_tokens/$walletAddress',
+    );
+    return StakedTokenResponse.fromJson(response.data);
+  }
+
+  // End of Staking API's
 }

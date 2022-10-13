@@ -12,7 +12,7 @@ _$_StakingOption _$$_StakingOptionFromJson(Map<String, dynamic> json) =>
       tokenSymbol: json['tokenSymbol'] as String,
       tokenName: json['tokenName'] as String,
       tokenLogoURI: json['tokenLogoURI'] as String,
-      stakingApr: json['stakingApr'] as String,
+      stakingApr: (json['stakingApr'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_StakingOptionToJson(_$_StakingOption instance) =>
