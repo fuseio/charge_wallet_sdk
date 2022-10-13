@@ -10,9 +10,9 @@ class StakedToken with _$StakedToken {
     required String tokenSymbol,
     required String tokenName,
     required String tokenLogoURI,
-    required String stakedAmount,
-    required String stakedAmountUSD,
-    required String earnedAmountUSD,
+    required double stakedAmount,
+    required double stakedAmountUSD,
+    required double earnedAmountUSD,
   }) = _StakedToken;
 
   factory StakedToken.fromJson(Map<String, dynamic> json) =>
@@ -22,8 +22,8 @@ class StakedToken with _$StakedToken {
 @freezed
 class StakedTokenResponse with _$StakedTokenResponse {
   factory StakedTokenResponse({
-    required String totalStakedAmountUSD,
-    required String totalEarnedAmountUSD,
+    required double totalStakedAmountUSD,
+    required double totalEarnedAmountUSD,
     required List<StakedToken> stakedTokens,
   }) = _StakedTokenResponse;
 

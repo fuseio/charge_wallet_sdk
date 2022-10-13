@@ -24,7 +24,7 @@ mixin _$StakingOption {
   String get tokenSymbol => throw _privateConstructorUsedError;
   String get tokenName => throw _privateConstructorUsedError;
   String get tokenLogoURI => throw _privateConstructorUsedError;
-  String get stakingApr => throw _privateConstructorUsedError;
+  double get stakingApr => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $StakingOptionCopyWith<$Res> {
       String tokenSymbol,
       String tokenName,
       String tokenLogoURI,
-      String stakingApr});
+      double stakingApr});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ class _$StakingOptionCopyWithImpl<$Res>
       stakingApr: stakingApr == freezed
           ? _value.stakingApr
           : stakingApr // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -99,7 +99,7 @@ abstract class _$$_StakingOptionCopyWith<$Res>
       String tokenSymbol,
       String tokenName,
       String tokenLogoURI,
-      String stakingApr});
+      double stakingApr});
 }
 
 /// @nodoc
@@ -141,7 +141,7 @@ class __$$_StakingOptionCopyWithImpl<$Res>
       stakingApr: stakingApr == freezed
           ? _value.stakingApr
           : stakingApr // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
     ));
   }
 }
@@ -169,7 +169,7 @@ class _$_StakingOption extends _StakingOption {
   @override
   final String tokenLogoURI;
   @override
-  final String stakingApr;
+  final double stakingApr;
 
   @override
   String toString() {
@@ -221,7 +221,7 @@ abstract class _StakingOption extends StakingOption {
       required final String tokenSymbol,
       required final String tokenName,
       required final String tokenLogoURI,
-      required final String stakingApr}) = _$_StakingOption;
+      required final double stakingApr}) = _$_StakingOption;
   _StakingOption._() : super._();
 
   factory _StakingOption.fromJson(Map<String, dynamic> json) =
@@ -236,7 +236,7 @@ abstract class _StakingOption extends StakingOption {
   @override
   String get tokenLogoURI;
   @override
-  String get stakingApr;
+  double get stakingApr;
   @override
   @JsonKey(ignore: true)
   _$$_StakingOptionCopyWith<_$_StakingOption> get copyWith =>
