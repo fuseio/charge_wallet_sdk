@@ -820,6 +820,7 @@ class ChargeApi {
         '0x',
         '',
       ),
+      tokensAmount: num.parse(stakeRequestBody.tokenAmount) + 1,
     );
   }
 
@@ -844,6 +845,7 @@ class ChargeApi {
         '0x',
         '',
       ),
+      tokensAmount: num.parse(unstakeRequestBody.tokenAmount) + 1,
     );
   }
 
