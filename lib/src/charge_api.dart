@@ -13,6 +13,7 @@ import 'package:charge_wallet_sdk/models/staking/stake.dart';
 import 'package:charge_wallet_sdk/models/staking/staked_token.dart';
 import 'package:charge_wallet_sdk/models/staking/unstake.dart';
 import 'package:charge_wallet_sdk/src/web3.dart';
+import 'package:web3dart/web3dart.dart';
 
 class ChargeApi {
   late String _jwtToken;
@@ -738,6 +739,14 @@ class ChargeApi {
     final StakeResponseBody stakeResponseBody = StakeResponseBody.fromJson(
       response.data,
     );
+    final Map transactionBody = {
+      "status": 'pending',
+      "from": stakeRequestBody.accountAddress,
+      'value': EtherAmount.fromUnitAndValue(
+        EtherUnit.ether,
+        stakeRequestBody.tokenAmount,
+      ).getInWei.toString(),
+    };
     return approveTokenAndCallContract(
       web3,
       stakeRequestBody.accountAddress,
@@ -748,6 +757,7 @@ class ChargeApi {
         '',
       ),
       tokensAmount: num.parse(stakeRequestBody.tokenAmount) + 1,
+      transactionBody: transactionBody,
     );
   }
 
@@ -763,6 +773,14 @@ class ChargeApi {
         UnstakeResponseBody.fromJson(
       response.data,
     );
+    final Map transactionBody = {
+      "status": 'pending',
+      "from": unstakeRequestBody.accountAddress,
+      'value': EtherAmount.fromUnitAndValue(
+        EtherUnit.ether,
+        unstakeRequestBody.tokenAmount,
+      ).getInWei.toString(),
+    };
     return approveTokenAndCallContract(
       web3,
       unstakeRequestBody.accountAddress,
@@ -773,6 +791,7 @@ class ChargeApi {
         '',
       ),
       tokensAmount: num.parse(unstakeRequestBody.tokenAmount) + 1,
+      transactionBody: transactionBody,
     );
   }
 
