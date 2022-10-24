@@ -1,13 +1,12 @@
 library web3;
 
 import 'dart:async';
-import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:bip32/bip32.dart' as bip32;
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:charge_wallet_sdk/models/models.dart';
-import 'package:decimal/decimal.dart';
+import 'package:charge_wallet_sdk/utils/format.dart';
 import 'package:hex/hex.dart';
 import 'package:http/http.dart';
 import 'package:web3dart/crypto.dart';
@@ -280,9 +279,10 @@ class Web3 {
     EthereumAddress receiver = EthereumAddress.fromHex(receiverAddress);
     BigInt amount = amountInWei ?? BigInt.zero;
     if (tokensAmount != null) {
-      Decimal tokensAmountDecimal = Decimal.parse(tokensAmount);
-      Decimal decimals = Decimal.parse(pow(10, 18).toString());
-      amount = BigInt.parse((tokensAmountDecimal * decimals).toString());
+      amount = AmountFormat.toBigInt(
+        tokensAmount,
+        18,
+      );
     }
     String nonce = await getNonceForRelay();
     String encodedData = '0x' +
@@ -388,9 +388,10 @@ class Web3 {
     BigInt amount = amountInWei ?? BigInt.zero;
     int tokenDecimals = int.parse(tokenDetails["decimals"].toString());
     if (tokensAmount != null) {
-      Decimal tokensAmountDecimal = Decimal.parse(tokensAmount);
-      Decimal decimals = Decimal.parse(pow(10, tokenDecimals).toString());
-      amount = BigInt.parse((tokensAmountDecimal * decimals).toString());
+      amount = AmountFormat.toBigInt(
+        tokensAmount,
+        tokenDecimals,
+      );
     }
     String nonce = await getNonceForRelay();
     String encodedData = '0x' +
@@ -466,9 +467,10 @@ class Web3 {
     if (tokensAmount != null) {
       dynamic tokenDetails = await getTokenDetails(tokenAddress);
       int tokenDecimals = int.parse(tokenDetails["decimals"].toString());
-      Decimal tokensAmountDecimal = Decimal.parse(tokensAmount.toString());
-      Decimal decimals = Decimal.parse(pow(10, tokenDecimals).toString());
-      amount = BigInt.parse((tokensAmountDecimal * decimals).toString());
+      amount = AmountFormat.toBigInt(
+        tokensAmount,
+        tokenDecimals,
+      );
     }
 
     String encodedData = '0x' +
@@ -579,9 +581,10 @@ class Web3 {
     EthereumAddress contract = EthereumAddress.fromHex(contractAddress);
     BigInt amount = amountInWei ?? BigInt.zero;
     if (ethAmount != null) {
-      Decimal ethAmountDecimal = Decimal.parse(ethAmount.toString());
-      Decimal decimals = Decimal.parse(pow(10, 18).toString());
-      amount = BigInt.parse((ethAmountDecimal * decimals).toString());
+      amount = AmountFormat.toBigInt(
+        ethAmount,
+        18,
+      );
     }
 
     String nonce = await getNonceForRelay();
@@ -643,9 +646,10 @@ class Web3 {
     if (tokensAmount != null) {
       dynamic tokenDetails = await getTokenDetails(tokenAddress);
       int tokenDecimals = int.parse(tokenDetails["decimals"].toString());
-      Decimal tokensAmountDecimal = Decimal.parse(tokensAmount.toString());
-      Decimal decimals = Decimal.parse(pow(10, tokenDecimals).toString());
-      amount = BigInt.parse((tokensAmountDecimal * decimals).toString());
+      amount = AmountFormat.toBigInt(
+        tokensAmount,
+        tokenDecimals,
+      );
     }
     String encodedApproveTokenAndCallContractData = '0x' +
         getEncodedDataForContractCall(

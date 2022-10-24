@@ -3,6 +3,7 @@ library charge_api;
 import 'dart:async';
 import 'dart:io';
 
+import 'package:charge_wallet_sdk/utils/format.dart';
 import 'package:dio/dio.dart';
 import 'package:path/path.dart' show basename;
 
@@ -13,7 +14,6 @@ import 'package:charge_wallet_sdk/models/staking/stake.dart';
 import 'package:charge_wallet_sdk/models/staking/staked_token.dart';
 import 'package:charge_wallet_sdk/models/staking/unstake.dart';
 import 'package:charge_wallet_sdk/src/web3.dart';
-import 'package:web3dart/web3dart.dart';
 
 class ChargeApi {
   late String _jwtToken;
@@ -805,20 +805,25 @@ class ChargeApi {
     Web3 web3,
     StakeRequestBody stakeRequestBody,
   ) async {
-    Response response = await _dio.post(
+    final Response response = await _dio.post(
       '/v0/staking/stake',
       data: stakeRequestBody.toJson(),
     );
     final StakeResponseBody stakeResponseBody = StakeResponseBody.fromJson(
       response.data,
     );
+    final dynamic tokenDetails = await web3.getTokenDetails(
+      stakeRequestBody.tokenAddress,
+    );
+    final int tokenDecimals = int.parse(tokenDetails["decimals"].toString());
+    final BigInt amount = AmountFormat.toBigInt(
+      stakeRequestBody.tokenAmount,
+      tokenDecimals,
+    );
     final Map transactionBody = {
       "status": 'pending',
       "from": stakeRequestBody.accountAddress,
-      'value': EtherAmount.fromUnitAndValue(
-        EtherUnit.ether,
-        stakeRequestBody.tokenAmount,
-      ).getInWei.toString(),
+      'value': amount.toString(),
     };
     return approveTokenAndCallContract(
       web3,
@@ -838,7 +843,7 @@ class ChargeApi {
     Web3 web3,
     UnstakeRequestBody unstakeRequestBody,
   ) async {
-    Response response = await _dio.post(
+    final Response response = await _dio.post(
       '/v0/staking/unstake',
       data: unstakeRequestBody.toJson(),
     );
@@ -846,13 +851,18 @@ class ChargeApi {
         UnstakeResponseBody.fromJson(
       response.data,
     );
+    final dynamic tokenDetails = await web3.getTokenDetails(
+      unstakeRequestBody.tokenAddress,
+    );
+    final int tokenDecimals = int.parse(tokenDetails["decimals"].toString());
+    final BigInt amount = AmountFormat.toBigInt(
+      unstakeRequestBody.tokenAmount,
+      tokenDecimals,
+    );
     final Map transactionBody = {
       "status": 'pending',
       "from": unstakeRequestBody.accountAddress,
-      'value': EtherAmount.fromUnitAndValue(
-        EtherUnit.ether,
-        unstakeRequestBody.tokenAmount,
-      ).getInWei.toString(),
+      'value': amount.toString(),
     };
     return approveTokenAndCallContract(
       web3,
