@@ -510,6 +510,71 @@ class ChargeApi {
     return response.data;
   }
 
+  Future<dynamic> encodeDataAndCallContract(
+    Web3 web3,
+    String walletAddress,
+    String jsonInterface,
+    String contractAddress,
+    String contractName,
+    String methodName,
+    List<dynamic> params, {
+    Map? transactionBody,
+    num? tokensAmount,
+    BigInt? amountInWei,
+  }) async {
+    Map<String, dynamic> relayParams = await web3.encodeDataAndCallContract(
+      walletAddress,
+      jsonInterface,
+      contractAddress,
+      contractName,
+      methodName,
+      params,
+      transactionBody: transactionBody,
+      tokensAmount: tokensAmount,
+      amountInWei: amountInWei,
+    );
+    Response response = await _dio.post(
+      '/v0/wallets/relay',
+      options: options,
+      data: relayParams,
+    );
+    return response.data;
+  }
+
+  Future<dynamic> encodeDataAndApproveTokenAndCallContract(
+    Web3 web3,
+    String walletAddress,
+    String jsonInterface,
+    String contractAddress,
+    String contractName,
+    String methodName,
+    String tokenAddress,
+    List<dynamic> params, {
+    Map? transactionBody,
+    num? tokensAmount,
+    BigInt? amountInWei,
+  }) async {
+    Map<String, dynamic> relayParams =
+        await web3.encodeDataAndApproveTokenAndCallContract(
+      walletAddress,
+      jsonInterface,
+      contractAddress,
+      contractName,
+      methodName,
+      tokenAddress,
+      params,
+      transactionBody: transactionBody,
+      tokensAmount: tokensAmount,
+      amountInWei: amountInWei,
+    );
+    Response response = await _dio.post(
+      '/v0/wallets/relay',
+      options: options,
+      data: relayParams,
+    );
+    return response.data;
+  }
+
   Future<dynamic> approveTokenAndCallContract(
     Web3 web3,
     String walletAddress,

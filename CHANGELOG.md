@@ -1,3 +1,9 @@
+# v0.0.2+4
+
+## Updates
+
+- Exposed new functions (`encodeDataAndCallContract` & `encodeDataAndApproveTokenAndCallContract`) that allow interaction with custom contracts
+
 # v0.0.2+3
 
 ## Fixes
