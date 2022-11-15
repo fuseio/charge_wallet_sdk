@@ -151,7 +151,7 @@ class ChargeApi {
     }
   }
 
-  Future<dynamic> deleteUserWallet() async {
+  Future<dynamic> deleteWallet() async {
     final Response response = await _dio.delete(
       '/v0/wallets/wallets',
       options: options,
