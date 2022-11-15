@@ -2,7 +2,7 @@
 
 ## Updates
 
-- Added functionally to delete account
+- Added functionally to delete wallet
 
 # v0.0.2+1
 
