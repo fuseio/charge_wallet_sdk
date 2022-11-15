@@ -151,6 +151,14 @@ class ChargeApi {
     }
   }
 
+  Future<dynamic> deleteWallet() async {
+    final Response response = await _dio.delete(
+      '/v0/wallets/wallets',
+      options: options,
+    );
+    return response.data;
+  }
+
   Future<dynamic> createWallet({
     String? referralAddress,
   }) async {

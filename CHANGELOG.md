@@ -1,3 +1,9 @@
+# v0.0.2+3
+
+## Updates
+
+- Added functionally to delete wallet
+
 # v0.0.2+1
 
 ## Fixes
