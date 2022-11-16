@@ -1,3 +1,9 @@
+# v0.0.2+3
+
+## Fixes
+
+- `uploadImage` API
+
 # v0.0.2+2
 
 ## Updates

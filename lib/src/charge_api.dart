@@ -43,23 +43,6 @@ class ChargeApi {
         },
       );
 
-  Future<dynamic> uploadImage(
-    File imageFile,
-  ) async {
-    FormData formData = FormData.fromMap({
-      'image': await MultipartFile.fromFile(
-        imageFile.path,
-        filename: basename(imageFile.path),
-      ),
-    });
-    Response response = await _dio.post(
-      '/v0/studio/images',
-      data: formData,
-    );
-
-    return response.data;
-  }
-
   // End of studio API's
 
   // Start of Wallet API's
@@ -207,6 +190,23 @@ class ChargeApi {
     } else {
       return {};
     }
+  }
+
+  Future<dynamic> uploadImage(
+    File imageFile,
+  ) async {
+    FormData formData = FormData.fromMap({
+      'image': await MultipartFile.fromFile(
+        imageFile.path,
+        filename: basename(imageFile.path),
+      ),
+    });
+    Response response = await _dio.post(
+      '/v0/wallets/images',
+      data: formData,
+    );
+
+    return response.data;
   }
 
   Future<Map<String, dynamic>> getActionsByWalletAddress(
