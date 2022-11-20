@@ -122,14 +122,13 @@ class Web3 {
     num? tokensAmount,
     BigInt? amountInWei,
   }) async {
-    final String data = '0x' +
-        getEncodedDataForContractCall(
-          contractName,
-          contractAddress,
-          methodName,
-          params,
-          jsonInterface: jsonInterface,
-        );
+    final String data = getEncodedDataForContractCall(
+      contractName,
+      contractAddress,
+      methodName,
+      params,
+      jsonInterface: jsonInterface,
+    );
 
     return approveTokenAndCallContractOffChain(
       walletAddress,
