@@ -78,11 +78,12 @@ class Web3 {
     return await _client.getBalance(a);
   }
 
-  Future<DeployedContract> _contract(
+  DeployedContract _contract(
     String contractName,
-    String contractAddress,
-  ) async {
-    String abi = ABI.get(contractName);
+    String contractAddress, {
+    String? jsonInterface,
+  }) {
+    String abi = jsonInterface ?? ABI.get(contractName);
     DeployedContract contract = DeployedContract(
       ContractAbi.fromJson(abi, contractName),
       EthereumAddress.fromHex(contractAddress),
@@ -90,29 +91,95 @@ class Web3 {
     return contract;
   }
 
-  Future<List<dynamic>> _readFromContract(
+  Future<List<dynamic>> readFromContract(
     String contractName,
     String contractAddress,
     String functionName,
-    List<dynamic> params,
-  ) async {
-    DeployedContract contract = await _contract(contractName, contractAddress);
-    return await _client.call(
+    List<dynamic> params, {
+    String? jsonInterface,
+  }) async {
+    DeployedContract contract = _contract(
+      contractName,
+      contractAddress,
+      jsonInterface: jsonInterface,
+    );
+    return _client.call(
       contract: contract,
       function: contract.function(functionName),
       params: params,
     );
   }
 
+  Future<Map<String, dynamic>> encodeDataAndApproveTokenAndCallContract(
+    String walletAddress,
+    String jsonInterface,
+    String contractAddress,
+    String contractName,
+    String methodName,
+    String tokenAddress,
+    List<dynamic> params, {
+    Map? transactionBody,
+    num? tokensAmount,
+    BigInt? amountInWei,
+  }) async {
+    final String data = getEncodedDataForContractCall(
+      contractName,
+      contractAddress,
+      methodName,
+      params,
+      jsonInterface: jsonInterface,
+    );
+
+    return approveTokenAndCallContractOffChain(
+      walletAddress,
+      tokenAddress,
+      contractAddress,
+      data,
+      tokensAmount: tokensAmount,
+      amountInWei: amountInWei,
+      transactionBody: transactionBody,
+    );
+  }
+
+  Future<Map<String, dynamic>> encodeDataAndCallContract(
+    String walletAddress,
+    String jsonInterface,
+    String contractAddress,
+    String contractName,
+    String methodName,
+    List<dynamic> params, {
+    Map? transactionBody,
+    num? tokensAmount,
+    BigInt? amountInWei,
+  }) async {
+    final String data = '0x' +
+        getEncodedDataForContractCall(
+          contractName,
+          contractAddress,
+          methodName,
+          params,
+          jsonInterface: jsonInterface,
+        );
+
+    return callContractOffChain(
+      walletAddress,
+      contractAddress,
+      data,
+      ethAmount: tokensAmount,
+      amountInWei: amountInWei,
+      transactionBody: transactionBody,
+    );
+  }
+
   Future<dynamic> getTokenDetails(String tokenAddress) async {
     return {
-      "name": (await _readFromContract('BasicToken', tokenAddress, 'name', []))
+      "name": (await readFromContract('BasicToken', tokenAddress, 'name', []))
           .first,
       "symbol":
-          (await _readFromContract('BasicToken', tokenAddress, 'symbol', []))
+          (await readFromContract('BasicToken', tokenAddress, 'symbol', []))
               .first,
       "decimals":
-          (await _readFromContract('BasicToken', tokenAddress, 'decimals', []))
+          (await readFromContract('BasicToken', tokenAddress, 'decimals', []))
               .first
     };
   }
@@ -121,7 +188,7 @@ class Web3 {
     String tokenAddress, {
     String? address,
   }) async {
-    final List<dynamic> response = await _readFromContract(
+    final List<dynamic> response = await readFromContract(
       'BasicToken',
       tokenAddress,
       'balanceOf',
@@ -147,7 +214,7 @@ class Web3 {
       params.add(address);
     }
     params.add(EthereumAddress.fromHex(spender));
-    final List<dynamic> response = await _readFromContract(
+    final List<dynamic> response = await readFromContract(
       'BasicToken',
       tokenAddress,
       'allowance',
@@ -219,7 +286,7 @@ class Web3 {
     }
     String nonce = await getNonceForRelay();
     String encodedData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           contractName,
           _modules.transferManager,
           methodName,
@@ -230,7 +297,7 @@ class Web3 {
             amount,
             hexToBytes('0x'),
           ],
-        ));
+        );
 
     String signature = await signOffChain(
       _modules.transferManager,
@@ -269,7 +336,7 @@ class Web3 {
     EthereumAddress newModule = EthereumAddress.fromHex(enableModuleAddress);
     String nonce = await getNonceForRelay();
     String encodedData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           disableModuleName,
           disableModuleAddress,
           methodName,
@@ -277,7 +344,7 @@ class Web3 {
             wallet,
             newModule,
           ],
-        ));
+        );
     String signature = await signOffChain(
       disableModuleAddress,
       walletAddress,
@@ -327,7 +394,7 @@ class Web3 {
     }
     String nonce = await getNonceForRelay();
     String encodedData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           contractName,
           _modules.transferManager,
           methodName,
@@ -338,7 +405,7 @@ class Web3 {
             amount,
             hexToBytes('0x'),
           ],
-        ));
+        );
 
     String signature = await signOffChain(
       _modules.transferManager,
@@ -405,7 +472,7 @@ class Web3 {
     }
 
     String encodedData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           contractName,
           _modules.transferManager,
           methodName,
@@ -415,7 +482,7 @@ class Web3 {
             spender,
             amount,
           ],
-        ));
+        );
     String signature = await signOffChain(
       _modules.transferManager,
       walletAddress,
@@ -459,7 +526,7 @@ class Web3 {
     BigInt id = BigInt.from(tokenId);
     String nonce = await getNonceForRelay();
     String encodedCallContractData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           walletModule,
           nftTransferContractAddress,
           methodName,
@@ -471,7 +538,7 @@ class Web3 {
             safe,
             hexToBytes('0x'),
           ],
-        ));
+        );
     String signature = await signOffChain(
       nftTransferContractAddress,
       walletAddress,
@@ -519,7 +586,7 @@ class Web3 {
 
     String nonce = await getNonceForRelay();
     String encodedCallContractData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           contractName,
           _modules.transferManager,
           methodName,
@@ -529,7 +596,7 @@ class Web3 {
             amount,
             HEX.decode(data),
           ],
-        ));
+        );
     String signature = await signOffChain(
       _modules.transferManager,
       walletAddress,
@@ -581,7 +648,7 @@ class Web3 {
       amount = BigInt.parse((tokensAmountDecimal * decimals).toString());
     }
     String encodedApproveTokenAndCallContractData = '0x' +
-        (await getEncodedDataForContractCall(
+        getEncodedDataForContractCall(
           contractName,
           _modules.transferManager,
           methodName,
@@ -592,7 +659,7 @@ class Web3 {
             amount,
             HEX.decode(data),
           ],
-        ));
+        );
 
     String signature = await signOffChain(
       _modules.transferManager,
@@ -619,14 +686,19 @@ class Web3 {
     };
   }
 
-  Future<String> getEncodedDataForContractCall(
+  String getEncodedDataForContractCall(
     String contractName,
     String contractAddress,
-    String methodName,
-    List params,
-  ) async {
-    DeployedContract contract = await _contract(contractName, contractAddress);
-    Uint8List data = contract.function(methodName).encodeCall(params);
+    String functionName,
+    List params, {
+    String? jsonInterface,
+  }) {
+    DeployedContract contract = _contract(
+      contractName,
+      contractAddress,
+      jsonInterface: jsonInterface,
+    );
+    Uint8List data = contract.function(functionName).encodeCall(params);
     String encodedData = HEX.encode(data);
     return encodedData;
   }
