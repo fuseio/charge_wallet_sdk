@@ -1,3 +1,9 @@
+# v0.0.2+5
+
+## Updates
+
+- Staking APIs
+
 # v0.0.2+4
 
 ## Updates
