@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'collectible.dart';
 
@@ -38,7 +38,8 @@ mixin _$Collectible {
 abstract class $CollectibleCopyWith<$Res> {
   factory $CollectibleCopyWith(
           Collectible value, $Res Function(Collectible) then) =
-      _$CollectibleCopyWithImpl<$Res>;
+      _$CollectibleCopyWithImpl<$Res, Collectible>;
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -50,53 +51,56 @@ abstract class $CollectibleCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CollectibleCopyWithImpl<$Res> implements $CollectibleCopyWith<$Res> {
+class _$CollectibleCopyWithImpl<$Res, $Val extends Collectible>
+    implements $CollectibleCopyWith<$Res> {
   _$CollectibleCopyWithImpl(this._value, this._then);
 
-  final Collectible _value;
   // ignore: unused_field
-  final $Res Function(Collectible) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? imageURL = freezed,
-    Object? description = freezed,
-    Object? collectionName = freezed,
-    Object? collectionSymbol = freezed,
-    Object? collectionAddress = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? imageURL = null,
+    Object? description = null,
+    Object? collectionName = null,
+    Object? collectionSymbol = null,
+    Object? collectionAddress = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      imageURL: imageURL == freezed
+      imageURL: null == imageURL
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionName: collectionName == freezed
+      collectionName: null == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionSymbol: collectionSymbol == freezed
+      collectionSymbol: null == collectionSymbol
           ? _value.collectionSymbol
           : collectionSymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionAddress: collectionAddress == freezed
+      collectionAddress: null == collectionAddress
           ? _value.collectionAddress
           : collectionAddress // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -107,6 +111,7 @@ abstract class _$$_CollectibleCopyWith<$Res>
           _$_Collectible value, $Res Function(_$_Collectible) then) =
       __$$_CollectibleCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -118,51 +123,50 @@ abstract class _$$_CollectibleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CollectibleCopyWithImpl<$Res> extends _$CollectibleCopyWithImpl<$Res>
+class __$$_CollectibleCopyWithImpl<$Res>
+    extends _$CollectibleCopyWithImpl<$Res, _$_Collectible>
     implements _$$_CollectibleCopyWith<$Res> {
   __$$_CollectibleCopyWithImpl(
       _$_Collectible _value, $Res Function(_$_Collectible) _then)
-      : super(_value, (v) => _then(v as _$_Collectible));
+      : super(_value, _then);
 
-  @override
-  _$_Collectible get _value => super._value as _$_Collectible;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? imageURL = freezed,
-    Object? description = freezed,
-    Object? collectionName = freezed,
-    Object? collectionSymbol = freezed,
-    Object? collectionAddress = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? imageURL = null,
+    Object? description = null,
+    Object? collectionName = null,
+    Object? collectionSymbol = null,
+    Object? collectionAddress = null,
   }) {
     return _then(_$_Collectible(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      imageURL: imageURL == freezed
+      imageURL: null == imageURL
           ? _value.imageURL
           : imageURL // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionName: collectionName == freezed
+      collectionName: null == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionSymbol: collectionSymbol == freezed
+      collectionSymbol: null == collectionSymbol
           ? _value.collectionSymbol
           : collectionSymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      collectionAddress: collectionAddress == freezed
+      collectionAddress: null == collectionAddress
           ? _value.collectionAddress
           : collectionAddress // ignore: cast_nullable_to_non_nullable
               as String,
@@ -210,33 +214,28 @@ class _$_Collectible implements _Collectible {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Collectible &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.imageURL, imageURL) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality()
-                .equals(other.collectionName, collectionName) &&
-            const DeepCollectionEquality()
-                .equals(other.collectionSymbol, collectionSymbol) &&
-            const DeepCollectionEquality()
-                .equals(other.collectionAddress, collectionAddress));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.imageURL, imageURL) ||
+                other.imageURL == imageURL) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.collectionName, collectionName) ||
+                other.collectionName == collectionName) &&
+            (identical(other.collectionSymbol, collectionSymbol) ||
+                other.collectionSymbol == collectionSymbol) &&
+            (identical(other.collectionAddress, collectionAddress) ||
+                other.collectionAddress == collectionAddress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(imageURL),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(collectionName),
-      const DeepCollectionEquality().hash(collectionSymbol),
-      const DeepCollectionEquality().hash(collectionAddress));
+  int get hashCode => Object.hash(runtimeType, id, name, imageURL, description,
+      collectionName, collectionSymbol, collectionAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CollectibleCopyWith<_$_Collectible> get copyWith =>
       __$$_CollectibleCopyWithImpl<_$_Collectible>(this, _$identity);
 

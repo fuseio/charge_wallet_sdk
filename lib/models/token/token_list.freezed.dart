@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token_list.dart';
 
@@ -33,38 +33,42 @@ mixin _$TokenList {
 /// @nodoc
 abstract class $TokenListCopyWith<$Res> {
   factory $TokenListCopyWith(TokenList value, $Res Function(TokenList) then) =
-      _$TokenListCopyWithImpl<$Res>;
+      _$TokenListCopyWithImpl<$Res, TokenList>;
+  @useResult
   $Res call({String message, String status, List<TokenInfo> result});
 }
 
 /// @nodoc
-class _$TokenListCopyWithImpl<$Res> implements $TokenListCopyWith<$Res> {
+class _$TokenListCopyWithImpl<$Res, $Val extends TokenList>
+    implements $TokenListCopyWith<$Res> {
   _$TokenListCopyWithImpl(this._value, this._then);
 
-  final TokenList _value;
   // ignore: unused_field
-  final $Res Function(TokenList) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
-    Object? status = freezed,
-    Object? result = freezed,
+    Object? message = null,
+    Object? status = null,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as List<TokenInfo>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,35 +78,35 @@ abstract class _$$_TokenListCopyWith<$Res> implements $TokenListCopyWith<$Res> {
           _$_TokenList value, $Res Function(_$_TokenList) then) =
       __$$_TokenListCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String message, String status, List<TokenInfo> result});
 }
 
 /// @nodoc
-class __$$_TokenListCopyWithImpl<$Res> extends _$TokenListCopyWithImpl<$Res>
+class __$$_TokenListCopyWithImpl<$Res>
+    extends _$TokenListCopyWithImpl<$Res, _$_TokenList>
     implements _$$_TokenListCopyWith<$Res> {
   __$$_TokenListCopyWithImpl(
       _$_TokenList _value, $Res Function(_$_TokenList) _then)
-      : super(_value, (v) => _then(v as _$_TokenList));
+      : super(_value, _then);
 
-  @override
-  _$_TokenList get _value => super._value as _$_TokenList;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
-    Object? status = freezed,
-    Object? result = freezed,
+    Object? message = null,
+    Object? status = null,
+    Object? result = null,
   }) {
     return _then(_$_TokenList(
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as List<TokenInfo>,
@@ -136,21 +140,19 @@ class _$_TokenList implements _TokenList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TokenList &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other.result, result));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(status),
+  int get hashCode => Object.hash(runtimeType, message, status,
       const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TokenListCopyWith<_$_TokenList> get copyWith =>
       __$$_TokenListCopyWithImpl<_$_TokenList>(this, _$identity);
 

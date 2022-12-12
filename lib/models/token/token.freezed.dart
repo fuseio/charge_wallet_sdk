@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'token.dart';
 
@@ -90,28 +90,28 @@ mixin _$TokenInfo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -122,7 +122,7 @@ mixin _$TokenInfo {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -194,11 +194,11 @@ mixin _$TokenInfo {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -220,7 +220,8 @@ mixin _$TokenInfo {
 /// @nodoc
 abstract class $TokenInfoCopyWith<$Res> {
   factory $TokenInfoCopyWith(TokenInfo value, $Res Function(TokenInfo) then) =
-      _$TokenInfoCopyWithImpl<$Res>;
+      _$TokenInfoCopyWithImpl<$Res, TokenInfo>;
+  @useResult
   $Res call(
       {String symbol,
       int decimals,
@@ -229,38 +230,41 @@ abstract class $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TokenInfoCopyWithImpl<$Res> implements $TokenInfoCopyWith<$Res> {
+class _$TokenInfoCopyWithImpl<$Res, $Val extends TokenInfo>
+    implements $TokenInfoCopyWith<$Res> {
   _$TokenInfoCopyWithImpl(this._value, this._then);
 
-  final TokenInfo _value;
   // ignore: unused_field
-  final $Res Function(TokenInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? decimals = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? symbol = null,
+    Object? decimals = null,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -271,6 +275,7 @@ abstract class _$$LiquidityPoolTokenCopyWith<$Res>
           $Res Function(_$LiquidityPoolToken) then) =
       __$$LiquidityPoolTokenCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       int decimals,
@@ -281,41 +286,39 @@ abstract class _$$LiquidityPoolTokenCopyWith<$Res>
 
 /// @nodoc
 class __$$LiquidityPoolTokenCopyWithImpl<$Res>
-    extends _$TokenInfoCopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res, _$LiquidityPoolToken>
     implements _$$LiquidityPoolTokenCopyWith<$Res> {
   __$$LiquidityPoolTokenCopyWithImpl(
       _$LiquidityPoolToken _value, $Res Function(_$LiquidityPoolToken) _then)
-      : super(_value, (v) => _then(v as _$LiquidityPoolToken));
+      : super(_value, _then);
 
-  @override
-  _$LiquidityPoolToken get _value => super._value as _$LiquidityPoolToken;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? decimals = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
-    Object? underlyingTokens = freezed,
+    Object? symbol = null,
+    Object? decimals = null,
+    Object? name = null,
+    Object? address = null,
+    Object? underlyingTokens = null,
   }) {
     return _then(_$LiquidityPoolToken(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      underlyingTokens: underlyingTokens == freezed
+      underlyingTokens: null == underlyingTokens
           ? _value.underlyingTokens
           : underlyingTokens // ignore: cast_nullable_to_non_nullable
               as List<LpUnderlyingTokens>,
@@ -365,26 +368,23 @@ class _$LiquidityPoolToken extends LiquidityPoolToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LiquidityPoolToken &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address) &&
             const DeepCollectionEquality()
                 .equals(other.underlyingTokens, underlyingTokens));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address),
+  int get hashCode => Object.hash(runtimeType, symbol, decimals, name, address,
       const DeepCollectionEquality().hash(underlyingTokens));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$LiquidityPoolTokenCopyWith<_$LiquidityPoolToken> get copyWith =>
       __$$LiquidityPoolTokenCopyWithImpl<_$LiquidityPoolToken>(
           this, _$identity);
@@ -443,28 +443,28 @@ class _$LiquidityPoolToken extends LiquidityPoolToken {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -475,7 +475,7 @@ class _$LiquidityPoolToken extends LiquidityPoolToken {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -561,11 +561,11 @@ class _$LiquidityPoolToken extends LiquidityPoolToken {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) {
     return liquidityPoolToken?.call(this);
   }
@@ -631,6 +631,7 @@ abstract class _$$BridgedTokenCopyWith<$Res>
           _$BridgedToken value, $Res Function(_$BridgedToken) then) =
       __$$BridgedTokenCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       String logoURI,
@@ -640,41 +641,40 @@ abstract class _$$BridgedTokenCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$BridgedTokenCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+class __$$BridgedTokenCopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res, _$BridgedToken>
     implements _$$BridgedTokenCopyWith<$Res> {
   __$$BridgedTokenCopyWithImpl(
       _$BridgedToken _value, $Res Function(_$BridgedToken) _then)
-      : super(_value, (v) => _then(v as _$BridgedToken));
+      : super(_value, _then);
 
-  @override
-  _$BridgedToken get _value => super._value as _$BridgedToken;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? logoURI = freezed,
-    Object? decimals = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? symbol = null,
+    Object? logoURI = null,
+    Object? decimals = null,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_$BridgedToken(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      logoURI: logoURI == freezed
+      logoURI: null == logoURI
           ? _value.logoURI
           : logoURI // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -724,25 +724,22 @@ class _$BridgedToken extends BridgedToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BridgedToken &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.logoURI, logoURI) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.logoURI, logoURI) || other.logoURI == logoURI) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(logoURI),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address));
+  int get hashCode =>
+      Object.hash(runtimeType, symbol, logoURI, decimals, name, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$BridgedTokenCopyWith<_$BridgedToken> get copyWith =>
       __$$BridgedTokenCopyWithImpl<_$BridgedToken>(this, _$identity);
 
@@ -799,28 +796,28 @@ class _$BridgedToken extends BridgedToken {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -831,7 +828,7 @@ class _$BridgedToken extends BridgedToken {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -915,11 +912,11 @@ class _$BridgedToken extends BridgedToken {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) {
     return bridgedToken?.call(this);
   }
@@ -984,6 +981,7 @@ abstract class _$$MiscTokenCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
           _$MiscToken value, $Res Function(_$MiscToken) then) =
       __$$MiscTokenCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       String logoURI,
@@ -993,41 +991,40 @@ abstract class _$$MiscTokenCopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$MiscTokenCopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+class __$$MiscTokenCopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res, _$MiscToken>
     implements _$$MiscTokenCopyWith<$Res> {
   __$$MiscTokenCopyWithImpl(
       _$MiscToken _value, $Res Function(_$MiscToken) _then)
-      : super(_value, (v) => _then(v as _$MiscToken));
+      : super(_value, _then);
 
-  @override
-  _$MiscToken get _value => super._value as _$MiscToken;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? logoURI = freezed,
-    Object? decimals = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? symbol = null,
+    Object? logoURI = null,
+    Object? decimals = null,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_$MiscToken(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      logoURI: logoURI == freezed
+      logoURI: null == logoURI
           ? _value.logoURI
           : logoURI // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1077,25 +1074,22 @@ class _$MiscToken extends MiscToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MiscToken &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.logoURI, logoURI) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.logoURI, logoURI) || other.logoURI == logoURI) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(logoURI),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address));
+  int get hashCode =>
+      Object.hash(runtimeType, symbol, logoURI, decimals, name, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$MiscTokenCopyWith<_$MiscToken> get copyWith =>
       __$$MiscTokenCopyWithImpl<_$MiscToken>(this, _$identity);
 
@@ -1152,28 +1146,28 @@ class _$MiscToken extends MiscToken {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1184,7 +1178,7 @@ class _$MiscToken extends MiscToken {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1268,11 +1262,11 @@ class _$MiscToken extends MiscToken {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) {
     return miscToken?.call(this);
   }
@@ -1335,6 +1329,7 @@ abstract class _$$ERC20CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
   factory _$$ERC20CopyWith(_$ERC20 value, $Res Function(_$ERC20) then) =
       __$$ERC20CopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       @JsonKey(fromJson: nameFromJson)
@@ -1348,40 +1343,38 @@ abstract class _$$ERC20CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ERC20CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+class __$$ERC20CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res, _$ERC20>
     implements _$$ERC20CopyWith<$Res> {
   __$$ERC20CopyWithImpl(_$ERC20 _value, $Res Function(_$ERC20) _then)
-      : super(_value, (v) => _then(v as _$ERC20));
+      : super(_value, _then);
 
-  @override
-  _$ERC20 get _value => super._value as _$ERC20;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? name = freezed,
-    Object? decimals = freezed,
-    Object? address = freezed,
-    Object? amount = freezed,
+    Object? symbol = null,
+    Object? name = null,
+    Object? decimals = null,
+    Object? address = null,
+    Object? amount = null,
   }) {
     return _then(_$ERC20(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as BigInt,
@@ -1436,25 +1429,22 @@ class _$ERC20 extends ERC20 {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ERC20 &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(amount));
+  int get hashCode =>
+      Object.hash(runtimeType, symbol, name, decimals, address, amount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ERC20CopyWith<_$ERC20> get copyWith =>
       __$$ERC20CopyWithImpl<_$ERC20>(this, _$identity);
 
@@ -1511,28 +1501,28 @@ class _$ERC20 extends ERC20 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1543,7 +1533,7 @@ class _$ERC20 extends ERC20 {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1627,11 +1617,11 @@ class _$ERC20 extends ERC20 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) {
     return erc20?.call(this);
   }
@@ -1698,6 +1688,7 @@ abstract class _$$ERC721CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
   factory _$$ERC721CopyWith(_$ERC721 value, $Res Function(_$ERC721) then) =
       __$$ERC721CopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       @JsonKey(fromJson: nameFromJson)
@@ -1711,40 +1702,39 @@ abstract class _$$ERC721CopyWith<$Res> implements $TokenInfoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ERC721CopyWithImpl<$Res> extends _$TokenInfoCopyWithImpl<$Res>
+class __$$ERC721CopyWithImpl<$Res>
+    extends _$TokenInfoCopyWithImpl<$Res, _$ERC721>
     implements _$$ERC721CopyWith<$Res> {
   __$$ERC721CopyWithImpl(_$ERC721 _value, $Res Function(_$ERC721) _then)
-      : super(_value, (v) => _then(v as _$ERC721));
+      : super(_value, _then);
 
-  @override
-  _$ERC721 get _value => super._value as _$ERC721;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? name = freezed,
-    Object? decimals = freezed,
-    Object? address = freezed,
-    Object? amount = freezed,
+    Object? symbol = null,
+    Object? name = null,
+    Object? decimals = null,
+    Object? address = null,
+    Object? amount = null,
   }) {
     return _then(_$ERC721(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      decimals: decimals == freezed
+      decimals: null == decimals
           ? _value.decimals
           : decimals // ignore: cast_nullable_to_non_nullable
               as int,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as BigInt,
@@ -1800,25 +1790,22 @@ class _$ERC721 extends ERC721 {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ERC721 &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.decimals, decimals) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.decimals, decimals) ||
+                other.decimals == decimals) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(decimals),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(amount));
+  int get hashCode =>
+      Object.hash(runtimeType, symbol, name, decimals, address, amount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$ERC721CopyWith<_$ERC721> get copyWith =>
       __$$ERC721CopyWithImpl<_$ERC721>(this, _$identity);
 
@@ -1875,28 +1862,28 @@ class _$ERC721 extends ERC721 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             String symbol,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address,
             List<LpUnderlyingTokens> underlyingTokens)?
         liquidityPoolToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         bridgedToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             String logoURI,
             int decimals,
             @JsonKey(fromJson: nameFromJson) String name,
             @JsonKey(fromJson: addressFromJson) String address)?
         miscToken,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1907,7 +1894,7 @@ class _$ERC721 extends ERC721 {
             @JsonKey(name: 'balance')
                 BigInt amount)?
         erc20,
-    TResult Function(
+    TResult? Function(
             String symbol,
             @JsonKey(fromJson: nameFromJson)
                 String name,
@@ -1991,11 +1978,11 @@ class _$ERC721 extends ERC721 {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LiquidityPoolToken value)? liquidityPoolToken,
-    TResult Function(BridgedToken value)? bridgedToken,
-    TResult Function(MiscToken value)? miscToken,
-    TResult Function(ERC20 value)? erc20,
-    TResult Function(ERC721 value)? erc721,
+    TResult? Function(LiquidityPoolToken value)? liquidityPoolToken,
+    TResult? Function(BridgedToken value)? bridgedToken,
+    TResult? Function(MiscToken value)? miscToken,
+    TResult? Function(ERC20 value)? erc20,
+    TResult? Function(ERC721 value)? erc721,
   }) {
     return erc721?.call(this);
   }

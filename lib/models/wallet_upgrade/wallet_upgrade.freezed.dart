@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_upgrade.dart';
 
@@ -40,7 +40,8 @@ mixin _$WalletUpgrade {
 abstract class $WalletUpgradeCopyWith<$Res> {
   factory $WalletUpgradeCopyWith(
           WalletUpgrade value, $Res Function(WalletUpgrade) then) =
-      _$WalletUpgradeCopyWithImpl<$Res>;
+      _$WalletUpgradeCopyWithImpl<$Res, WalletUpgrade>;
+  @useResult
   $Res call(
       {String? version,
       String contractAddress,
@@ -53,59 +54,61 @@ abstract class $WalletUpgradeCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WalletUpgradeCopyWithImpl<$Res>
+class _$WalletUpgradeCopyWithImpl<$Res, $Val extends WalletUpgrade>
     implements $WalletUpgradeCopyWith<$Res> {
   _$WalletUpgradeCopyWithImpl(this._value, this._then);
 
-  final WalletUpgrade _value;
   // ignore: unused_field
-  final $Res Function(WalletUpgrade) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? version = freezed,
-    Object? contractAddress = freezed,
+    Object? contractAddress = null,
     Object? paddedVersion = freezed,
-    Object? disabledModules = freezed,
-    Object? enabledModules = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? id = freezed,
+    Object? disabledModules = null,
+    Object? enabledModules = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
-      version: version == freezed
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String?,
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      paddedVersion: paddedVersion == freezed
+      paddedVersion: freezed == paddedVersion
           ? _value.paddedVersion
           : paddedVersion // ignore: cast_nullable_to_non_nullable
               as String?,
-      disabledModules: disabledModules == freezed
+      disabledModules: null == disabledModules
           ? _value.disabledModules
           : disabledModules // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-      enabledModules: enabledModules == freezed
+      enabledModules: null == enabledModules
           ? _value.enabledModules
           : enabledModules // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -116,6 +119,7 @@ abstract class _$$_WalletUpgradeCopyWith<$Res>
           _$_WalletUpgrade value, $Res Function(_$_WalletUpgrade) then) =
       __$$_WalletUpgradeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? version,
       String contractAddress,
@@ -129,56 +133,54 @@ abstract class _$$_WalletUpgradeCopyWith<$Res>
 
 /// @nodoc
 class __$$_WalletUpgradeCopyWithImpl<$Res>
-    extends _$WalletUpgradeCopyWithImpl<$Res>
+    extends _$WalletUpgradeCopyWithImpl<$Res, _$_WalletUpgrade>
     implements _$$_WalletUpgradeCopyWith<$Res> {
   __$$_WalletUpgradeCopyWithImpl(
       _$_WalletUpgrade _value, $Res Function(_$_WalletUpgrade) _then)
-      : super(_value, (v) => _then(v as _$_WalletUpgrade));
+      : super(_value, _then);
 
-  @override
-  _$_WalletUpgrade get _value => super._value as _$_WalletUpgrade;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? version = freezed,
-    Object? contractAddress = freezed,
+    Object? contractAddress = null,
     Object? paddedVersion = freezed,
-    Object? disabledModules = freezed,
-    Object? enabledModules = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? id = freezed,
+    Object? disabledModules = null,
+    Object? enabledModules = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? id = null,
   }) {
     return _then(_$_WalletUpgrade(
-      version: version == freezed
+      version: freezed == version
           ? _value.version
           : version // ignore: cast_nullable_to_non_nullable
               as String?,
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      paddedVersion: paddedVersion == freezed
+      paddedVersion: freezed == paddedVersion
           ? _value.paddedVersion
           : paddedVersion // ignore: cast_nullable_to_non_nullable
               as String?,
-      disabledModules: disabledModules == freezed
+      disabledModules: null == disabledModules
           ? _value.disabledModules
           : disabledModules // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-      enabledModules: enabledModules == freezed
+      enabledModules: null == enabledModules
           ? _value.enabledModules
           : enabledModules // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
@@ -231,35 +233,38 @@ class _$_WalletUpgrade extends _WalletUpgrade {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WalletUpgrade &&
-            const DeepCollectionEquality().equals(other.version, version) &&
-            const DeepCollectionEquality()
-                .equals(other.contractAddress, contractAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.paddedVersion, paddedVersion) &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.contractAddress, contractAddress) ||
+                other.contractAddress == contractAddress) &&
+            (identical(other.paddedVersion, paddedVersion) ||
+                other.paddedVersion == paddedVersion) &&
             const DeepCollectionEquality()
                 .equals(other.disabledModules, disabledModules) &&
             const DeepCollectionEquality()
                 .equals(other.enabledModules, enabledModules) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(version),
-      const DeepCollectionEquality().hash(contractAddress),
-      const DeepCollectionEquality().hash(paddedVersion),
+      version,
+      contractAddress,
+      paddedVersion,
       const DeepCollectionEquality().hash(disabledModules),
       const DeepCollectionEquality().hash(enabledModules),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt),
-      const DeepCollectionEquality().hash(id));
+      createdAt,
+      updatedAt,
+      id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WalletUpgradeCopyWith<_$_WalletUpgrade> get copyWith =>
       __$$_WalletUpgradeCopyWithImpl<_$_WalletUpgrade>(this, _$identity);
 

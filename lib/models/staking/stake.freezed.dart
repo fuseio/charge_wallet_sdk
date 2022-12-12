@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stake.dart';
 
@@ -34,39 +34,42 @@ mixin _$StakeRequestBody {
 abstract class $StakeRequestBodyCopyWith<$Res> {
   factory $StakeRequestBodyCopyWith(
           StakeRequestBody value, $Res Function(StakeRequestBody) then) =
-      _$StakeRequestBodyCopyWithImpl<$Res>;
+      _$StakeRequestBodyCopyWithImpl<$Res, StakeRequestBody>;
+  @useResult
   $Res call({String accountAddress, String tokenAmount, String tokenAddress});
 }
 
 /// @nodoc
-class _$StakeRequestBodyCopyWithImpl<$Res>
+class _$StakeRequestBodyCopyWithImpl<$Res, $Val extends StakeRequestBody>
     implements $StakeRequestBodyCopyWith<$Res> {
   _$StakeRequestBodyCopyWithImpl(this._value, this._then);
 
-  final StakeRequestBody _value;
   // ignore: unused_field
-  final $Res Function(StakeRequestBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountAddress = freezed,
-    Object? tokenAmount = freezed,
-    Object? tokenAddress = freezed,
+    Object? accountAddress = null,
+    Object? tokenAmount = null,
+    Object? tokenAddress = null,
   }) {
     return _then(_value.copyWith(
-      accountAddress: accountAddress == freezed
+      accountAddress: null == accountAddress
           ? _value.accountAddress
           : accountAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAmount: tokenAmount == freezed
+      tokenAmount: null == tokenAmount
           ? _value.tokenAmount
           : tokenAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_StakeRequestBodyCopyWith<$Res>
           _$_StakeRequestBody value, $Res Function(_$_StakeRequestBody) then) =
       __$$_StakeRequestBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String accountAddress, String tokenAmount, String tokenAddress});
 }
 
 /// @nodoc
 class __$$_StakeRequestBodyCopyWithImpl<$Res>
-    extends _$StakeRequestBodyCopyWithImpl<$Res>
+    extends _$StakeRequestBodyCopyWithImpl<$Res, _$_StakeRequestBody>
     implements _$$_StakeRequestBodyCopyWith<$Res> {
   __$$_StakeRequestBodyCopyWithImpl(
       _$_StakeRequestBody _value, $Res Function(_$_StakeRequestBody) _then)
-      : super(_value, (v) => _then(v as _$_StakeRequestBody));
+      : super(_value, _then);
 
-  @override
-  _$_StakeRequestBody get _value => super._value as _$_StakeRequestBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountAddress = freezed,
-    Object? tokenAmount = freezed,
-    Object? tokenAddress = freezed,
+    Object? accountAddress = null,
+    Object? tokenAmount = null,
+    Object? tokenAddress = null,
   }) {
     return _then(_$_StakeRequestBody(
-      accountAddress: accountAddress == freezed
+      accountAddress: null == accountAddress
           ? _value.accountAddress
           : accountAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAmount: tokenAmount == freezed
+      tokenAmount: null == tokenAmount
           ? _value.tokenAmount
           : tokenAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
@@ -142,24 +144,22 @@ class _$_StakeRequestBody implements _StakeRequestBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StakeRequestBody &&
-            const DeepCollectionEquality()
-                .equals(other.accountAddress, accountAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAmount, tokenAmount) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAddress, tokenAddress));
+            (identical(other.accountAddress, accountAddress) ||
+                other.accountAddress == accountAddress) &&
+            (identical(other.tokenAmount, tokenAmount) ||
+                other.tokenAmount == tokenAmount) &&
+            (identical(other.tokenAddress, tokenAddress) ||
+                other.tokenAddress == tokenAddress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(accountAddress),
-      const DeepCollectionEquality().hash(tokenAmount),
-      const DeepCollectionEquality().hash(tokenAddress));
+  int get hashCode =>
+      Object.hash(runtimeType, accountAddress, tokenAmount, tokenAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StakeRequestBodyCopyWith<_$_StakeRequestBody> get copyWith =>
       __$$_StakeRequestBodyCopyWithImpl<_$_StakeRequestBody>(this, _$identity);
 
@@ -211,34 +211,37 @@ mixin _$StakeResponseBody {
 abstract class $StakeResponseBodyCopyWith<$Res> {
   factory $StakeResponseBodyCopyWith(
           StakeResponseBody value, $Res Function(StakeResponseBody) then) =
-      _$StakeResponseBodyCopyWithImpl<$Res>;
+      _$StakeResponseBodyCopyWithImpl<$Res, StakeResponseBody>;
+  @useResult
   $Res call({String contractAddress, String encodedABI});
 }
 
 /// @nodoc
-class _$StakeResponseBodyCopyWithImpl<$Res>
+class _$StakeResponseBodyCopyWithImpl<$Res, $Val extends StakeResponseBody>
     implements $StakeResponseBodyCopyWith<$Res> {
   _$StakeResponseBodyCopyWithImpl(this._value, this._then);
 
-  final StakeResponseBody _value;
   // ignore: unused_field
-  final $Res Function(StakeResponseBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? contractAddress = freezed,
-    Object? encodedABI = freezed,
+    Object? contractAddress = null,
+    Object? encodedABI = null,
   }) {
     return _then(_value.copyWith(
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      encodedABI: encodedABI == freezed
+      encodedABI: null == encodedABI
           ? _value.encodedABI
           : encodedABI // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -249,31 +252,30 @@ abstract class _$$_StakeResponseBodyCopyWith<$Res>
           $Res Function(_$_StakeResponseBody) then) =
       __$$_StakeResponseBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String contractAddress, String encodedABI});
 }
 
 /// @nodoc
 class __$$_StakeResponseBodyCopyWithImpl<$Res>
-    extends _$StakeResponseBodyCopyWithImpl<$Res>
+    extends _$StakeResponseBodyCopyWithImpl<$Res, _$_StakeResponseBody>
     implements _$$_StakeResponseBodyCopyWith<$Res> {
   __$$_StakeResponseBodyCopyWithImpl(
       _$_StakeResponseBody _value, $Res Function(_$_StakeResponseBody) _then)
-      : super(_value, (v) => _then(v as _$_StakeResponseBody));
+      : super(_value, _then);
 
-  @override
-  _$_StakeResponseBody get _value => super._value as _$_StakeResponseBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? contractAddress = freezed,
-    Object? encodedABI = freezed,
+    Object? contractAddress = null,
+    Object? encodedABI = null,
   }) {
     return _then(_$_StakeResponseBody(
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      encodedABI: encodedABI == freezed
+      encodedABI: null == encodedABI
           ? _value.encodedABI
           : encodedABI // ignore: cast_nullable_to_non_nullable
               as String,
@@ -305,21 +307,19 @@ class _$_StakeResponseBody implements _StakeResponseBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StakeResponseBody &&
-            const DeepCollectionEquality()
-                .equals(other.contractAddress, contractAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.encodedABI, encodedABI));
+            (identical(other.contractAddress, contractAddress) ||
+                other.contractAddress == contractAddress) &&
+            (identical(other.encodedABI, encodedABI) ||
+                other.encodedABI == encodedABI));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(contractAddress),
-      const DeepCollectionEquality().hash(encodedABI));
+  int get hashCode => Object.hash(runtimeType, contractAddress, encodedABI);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StakeResponseBodyCopyWith<_$_StakeResponseBody> get copyWith =>
       __$$_StakeResponseBodyCopyWithImpl<_$_StakeResponseBody>(
           this, _$identity);

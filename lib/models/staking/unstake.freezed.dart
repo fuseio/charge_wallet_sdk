@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'unstake.dart';
 
@@ -34,39 +34,42 @@ mixin _$UnstakeRequestBody {
 abstract class $UnstakeRequestBodyCopyWith<$Res> {
   factory $UnstakeRequestBodyCopyWith(
           UnstakeRequestBody value, $Res Function(UnstakeRequestBody) then) =
-      _$UnstakeRequestBodyCopyWithImpl<$Res>;
+      _$UnstakeRequestBodyCopyWithImpl<$Res, UnstakeRequestBody>;
+  @useResult
   $Res call({String accountAddress, String tokenAmount, String tokenAddress});
 }
 
 /// @nodoc
-class _$UnstakeRequestBodyCopyWithImpl<$Res>
+class _$UnstakeRequestBodyCopyWithImpl<$Res, $Val extends UnstakeRequestBody>
     implements $UnstakeRequestBodyCopyWith<$Res> {
   _$UnstakeRequestBodyCopyWithImpl(this._value, this._then);
 
-  final UnstakeRequestBody _value;
   // ignore: unused_field
-  final $Res Function(UnstakeRequestBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountAddress = freezed,
-    Object? tokenAmount = freezed,
-    Object? tokenAddress = freezed,
+    Object? accountAddress = null,
+    Object? tokenAmount = null,
+    Object? tokenAddress = null,
   }) {
     return _then(_value.copyWith(
-      accountAddress: accountAddress == freezed
+      accountAddress: null == accountAddress
           ? _value.accountAddress
           : accountAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAmount: tokenAmount == freezed
+      tokenAmount: null == tokenAmount
           ? _value.tokenAmount
           : tokenAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_UnstakeRequestBodyCopyWith<$Res>
           $Res Function(_$_UnstakeRequestBody) then) =
       __$$_UnstakeRequestBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String accountAddress, String tokenAmount, String tokenAddress});
 }
 
 /// @nodoc
 class __$$_UnstakeRequestBodyCopyWithImpl<$Res>
-    extends _$UnstakeRequestBodyCopyWithImpl<$Res>
+    extends _$UnstakeRequestBodyCopyWithImpl<$Res, _$_UnstakeRequestBody>
     implements _$$_UnstakeRequestBodyCopyWith<$Res> {
   __$$_UnstakeRequestBodyCopyWithImpl(
       _$_UnstakeRequestBody _value, $Res Function(_$_UnstakeRequestBody) _then)
-      : super(_value, (v) => _then(v as _$_UnstakeRequestBody));
+      : super(_value, _then);
 
-  @override
-  _$_UnstakeRequestBody get _value => super._value as _$_UnstakeRequestBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? accountAddress = freezed,
-    Object? tokenAmount = freezed,
-    Object? tokenAddress = freezed,
+    Object? accountAddress = null,
+    Object? tokenAmount = null,
+    Object? tokenAddress = null,
   }) {
     return _then(_$_UnstakeRequestBody(
-      accountAddress: accountAddress == freezed
+      accountAddress: null == accountAddress
           ? _value.accountAddress
           : accountAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAmount: tokenAmount == freezed
+      tokenAmount: null == tokenAmount
           ? _value.tokenAmount
           : tokenAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
@@ -142,24 +144,22 @@ class _$_UnstakeRequestBody implements _UnstakeRequestBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UnstakeRequestBody &&
-            const DeepCollectionEquality()
-                .equals(other.accountAddress, accountAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAmount, tokenAmount) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAddress, tokenAddress));
+            (identical(other.accountAddress, accountAddress) ||
+                other.accountAddress == accountAddress) &&
+            (identical(other.tokenAmount, tokenAmount) ||
+                other.tokenAmount == tokenAmount) &&
+            (identical(other.tokenAddress, tokenAddress) ||
+                other.tokenAddress == tokenAddress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(accountAddress),
-      const DeepCollectionEquality().hash(tokenAmount),
-      const DeepCollectionEquality().hash(tokenAddress));
+  int get hashCode =>
+      Object.hash(runtimeType, accountAddress, tokenAmount, tokenAddress);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UnstakeRequestBodyCopyWith<_$_UnstakeRequestBody> get copyWith =>
       __$$_UnstakeRequestBodyCopyWithImpl<_$_UnstakeRequestBody>(
           this, _$identity);
@@ -212,34 +212,37 @@ mixin _$UnstakeResponseBody {
 abstract class $UnstakeResponseBodyCopyWith<$Res> {
   factory $UnstakeResponseBodyCopyWith(
           UnstakeResponseBody value, $Res Function(UnstakeResponseBody) then) =
-      _$UnstakeResponseBodyCopyWithImpl<$Res>;
+      _$UnstakeResponseBodyCopyWithImpl<$Res, UnstakeResponseBody>;
+  @useResult
   $Res call({String contractAddress, String encodedABI});
 }
 
 /// @nodoc
-class _$UnstakeResponseBodyCopyWithImpl<$Res>
+class _$UnstakeResponseBodyCopyWithImpl<$Res, $Val extends UnstakeResponseBody>
     implements $UnstakeResponseBodyCopyWith<$Res> {
   _$UnstakeResponseBodyCopyWithImpl(this._value, this._then);
 
-  final UnstakeResponseBody _value;
   // ignore: unused_field
-  final $Res Function(UnstakeResponseBody) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? contractAddress = freezed,
-    Object? encodedABI = freezed,
+    Object? contractAddress = null,
+    Object? encodedABI = null,
   }) {
     return _then(_value.copyWith(
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      encodedABI: encodedABI == freezed
+      encodedABI: null == encodedABI
           ? _value.encodedABI
           : encodedABI // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -250,31 +253,30 @@ abstract class _$$_UnstakeResponseBodyCopyWith<$Res>
           $Res Function(_$_UnstakeResponseBody) then) =
       __$$_UnstakeResponseBodyCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String contractAddress, String encodedABI});
 }
 
 /// @nodoc
 class __$$_UnstakeResponseBodyCopyWithImpl<$Res>
-    extends _$UnstakeResponseBodyCopyWithImpl<$Res>
+    extends _$UnstakeResponseBodyCopyWithImpl<$Res, _$_UnstakeResponseBody>
     implements _$$_UnstakeResponseBodyCopyWith<$Res> {
   __$$_UnstakeResponseBodyCopyWithImpl(_$_UnstakeResponseBody _value,
       $Res Function(_$_UnstakeResponseBody) _then)
-      : super(_value, (v) => _then(v as _$_UnstakeResponseBody));
+      : super(_value, _then);
 
-  @override
-  _$_UnstakeResponseBody get _value => super._value as _$_UnstakeResponseBody;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? contractAddress = freezed,
-    Object? encodedABI = freezed,
+    Object? contractAddress = null,
+    Object? encodedABI = null,
   }) {
     return _then(_$_UnstakeResponseBody(
-      contractAddress: contractAddress == freezed
+      contractAddress: null == contractAddress
           ? _value.contractAddress
           : contractAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      encodedABI: encodedABI == freezed
+      encodedABI: null == encodedABI
           ? _value.encodedABI
           : encodedABI // ignore: cast_nullable_to_non_nullable
               as String,
@@ -306,21 +308,19 @@ class _$_UnstakeResponseBody implements _UnstakeResponseBody {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UnstakeResponseBody &&
-            const DeepCollectionEquality()
-                .equals(other.contractAddress, contractAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.encodedABI, encodedABI));
+            (identical(other.contractAddress, contractAddress) ||
+                other.contractAddress == contractAddress) &&
+            (identical(other.encodedABI, encodedABI) ||
+                other.encodedABI == encodedABI));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(contractAddress),
-      const DeepCollectionEquality().hash(encodedABI));
+  int get hashCode => Object.hash(runtimeType, contractAddress, encodedABI);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UnstakeResponseBodyCopyWith<_$_UnstakeResponseBody> get copyWith =>
       __$$_UnstakeResponseBodyCopyWithImpl<_$_UnstakeResponseBody>(
           this, _$identity);
