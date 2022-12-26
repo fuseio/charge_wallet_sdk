@@ -5,6 +5,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'explorer.g.dart';
 
+@Deprecated('Use [ChargeApi().getTokenList(address)]')
 @RestApi(baseUrl: "https://explorer.fuse.io/api/")
 abstract class FuseExplorer {
   factory FuseExplorer(Dio dio, {String baseUrl}) = _FuseExplorer;

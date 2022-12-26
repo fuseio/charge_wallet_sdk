@@ -1,8 +1,8 @@
 name: charge_wallet_sdk
-version: 0.0.2+5
-homepage: https://docs.chargeweb3.com/docs/overview-2
-repository: https://github.com/fuseio/charge_wallet_sdk
 description: SDK for Charge Wallet API
+version: 0.0.2+6
+repository: https://github.com/fuseio/charge_wallet_sdk
+homepage: https://docs.chargeweb3.com/docs/overview-2
 environment:
   sdk: ">=2.17.0 <3.0.0"
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
   retrofit: ^3.3.1
   web3dart: ^2.5.2
 dev_dependencies:
-  build_runner: ^2.3.2
+  build_runner: ^2.3.3
   freezed: ^2.3.2
   json_serializable: ^6.5.4
   retrofit_generator: ^4.2.0

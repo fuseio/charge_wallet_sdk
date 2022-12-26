@@ -12,19 +12,9 @@ Dart library for accessing Charge Wallet APIs.
   * Sign off-chain transactions to transfer using relay
   * [ERC20 based tokens](https://eips.ethereum.org/EIPS/eip-20) - get balance, send, sign off-chain transactions to transfer using relay
   * Contracts - read/write
-* GraphQL
-  * Interact with [The Graph](https://thegraph.com/) for easier blockchain data reads
-* FuseExplorer
-  * Interact with [Fuse Explorer API](https://explorer.fuse.io/api-docs) for fetching user assets on the Fuse Network
-
-## Install
-
-See [pub.dev](https://pub.dev/packages/charge_wallet_sdk#-installing-tab-)
+* Fuse NFT subgraph
+  * Interact with [Fuse NFT subgraph](https://thegraph.com/hosted-service/subgraph/fuseio/fuse-nft) for easier NFTs data reads
 
 ## Usage
 
 See [`example`](https://github.com/fuseio/charge_wallet_sdk/tree/master/example) folder
-
-## License
-
-Charge Wallet SDK is available under the MIT license. See the [LICENSE](LICENSE) file for more info.

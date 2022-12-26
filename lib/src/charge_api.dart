@@ -888,4 +888,15 @@ class ChargeApi {
   }
 
   // End of Staking API's
+
+  // Start of Explorer API's
+  Future<TokenList> getTokenList(
+    String walletAddress,
+  ) async {
+    Response response = await _dio.get(
+      '/v0/explorer?module=account&action=tokenlist&address=$walletAddress',
+    );
+    return TokenList.fromJson(response.data);
+  }
+  // End of Explorer API's
 }
