@@ -219,12 +219,15 @@ class ChargeApi {
     int updatedAt = 0,
     String? tokenAddress,
   }) async {
+    final Map<String, dynamic> queryParameters = {
+      'updatedAt': updatedAt,
+    };
+    if (tokenAddress != null) {
+      queryParameters.putIfAbsent('tokenAddress', () => tokenAddress);
+    }
     Response response = await _dio.get(
       '/v0/wallets/wallets/actions/$walletAddress',
-      queryParameters: {
-        'updatedAt': updatedAt,
-        'tokenAddress': tokenAddress,
-      },
+      queryParameters: queryParameters,
       options: options,
     );
     return response.data['data'];
@@ -235,12 +238,15 @@ class ChargeApi {
     int pageIndex, {
     String? tokenAddress,
   }) async {
-    Response response = await _dio.get(
+    final Map<String, dynamic> queryParameters = {
+      'page': pageIndex,
+    };
+    if (tokenAddress != null) {
+      queryParameters.putIfAbsent('tokenAddress', () => tokenAddress);
+    }
+    final Response response = await _dio.get(
       '/v0/wallets/wallets/actions/paginated/$walletAddress',
-      queryParameters: {
-        'page': pageIndex,
-        'tokenAddress': tokenAddress,
-      },
+      queryParameters: queryParameters,
       options: options,
     );
     return response.data['data'];
