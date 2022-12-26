@@ -1,3 +1,9 @@
+# v0.0.2+6
+
+### Deprecated
+
+* FuseExplorer will be removed in next versions. The function `getTokenList` moved to `ChargeApi` module. 
+
 # v0.0.2+5
 
 ## Updates

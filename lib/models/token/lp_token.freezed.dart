@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'lp_token.dart';
 
@@ -36,7 +36,8 @@ mixin _$LpUnderlyingTokens {
 abstract class $LpUnderlyingTokensCopyWith<$Res> {
   factory $LpUnderlyingTokensCopyWith(
           LpUnderlyingTokens value, $Res Function(LpUnderlyingTokens) then) =
-      _$LpUnderlyingTokensCopyWithImpl<$Res>;
+      _$LpUnderlyingTokensCopyWithImpl<$Res, LpUnderlyingTokens>;
+  @useResult
   $Res call(
       {String symbol,
       @JsonKey(fromJson: nameFromJson) String name,
@@ -44,34 +45,36 @@ abstract class $LpUnderlyingTokensCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LpUnderlyingTokensCopyWithImpl<$Res>
+class _$LpUnderlyingTokensCopyWithImpl<$Res, $Val extends LpUnderlyingTokens>
     implements $LpUnderlyingTokensCopyWith<$Res> {
   _$LpUnderlyingTokensCopyWithImpl(this._value, this._then);
 
-  final LpUnderlyingTokens _value;
   // ignore: unused_field
-  final $Res Function(LpUnderlyingTokens) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? symbol = null,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_value.copyWith(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +85,7 @@ abstract class _$$_LpUnderlyingTokensCopyWith<$Res>
           $Res Function(_$_LpUnderlyingTokens) then) =
       __$$_LpUnderlyingTokensCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String symbol,
       @JsonKey(fromJson: nameFromJson) String name,
@@ -90,31 +94,29 @@ abstract class _$$_LpUnderlyingTokensCopyWith<$Res>
 
 /// @nodoc
 class __$$_LpUnderlyingTokensCopyWithImpl<$Res>
-    extends _$LpUnderlyingTokensCopyWithImpl<$Res>
+    extends _$LpUnderlyingTokensCopyWithImpl<$Res, _$_LpUnderlyingTokens>
     implements _$$_LpUnderlyingTokensCopyWith<$Res> {
   __$$_LpUnderlyingTokensCopyWithImpl(
       _$_LpUnderlyingTokens _value, $Res Function(_$_LpUnderlyingTokens) _then)
-      : super(_value, (v) => _then(v as _$_LpUnderlyingTokens));
+      : super(_value, _then);
 
-  @override
-  _$_LpUnderlyingTokens get _value => super._value as _$_LpUnderlyingTokens;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = freezed,
-    Object? name = freezed,
-    Object? address = freezed,
+    Object? symbol = null,
+    Object? name = null,
+    Object? address = null,
   }) {
     return _then(_$_LpUnderlyingTokens(
-      symbol: symbol == freezed
+      symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
@@ -152,21 +154,18 @@ class _$_LpUnderlyingTokens implements _LpUnderlyingTokens {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LpUnderlyingTokens &&
-            const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address));
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.address, address) || other.address == address));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address));
+  int get hashCode => Object.hash(runtimeType, symbol, name, address);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LpUnderlyingTokensCopyWith<_$_LpUnderlyingTokens> get copyWith =>
       __$$_LpUnderlyingTokensCopyWithImpl<_$_LpUnderlyingTokens>(
           this, _$identity);

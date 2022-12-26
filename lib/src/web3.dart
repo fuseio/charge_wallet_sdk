@@ -72,7 +72,7 @@ class Web3 {
     if (address != null && address != "") {
       ethereumAddress = EthereumAddress.fromHex(address);
     } else {
-      ethereumAddress = await _credentials.extractAddress();
+      ethereumAddress = await _credentials.address;
     }
     return _client.getBalance(ethereumAddress);
   }
@@ -194,7 +194,7 @@ class Web3 {
       [
         address != null && address != ""
             ? EthereumAddress.fromHex(address)
-            : (await _credentials.extractAddress())
+            : _credentials.address
       ],
     );
     return response.first;
@@ -209,7 +209,7 @@ class Web3 {
     if (owner != null && owner != "") {
       params.add(EthereumAddress.fromHex(owner));
     } else {
-      EthereumAddress address = await _credentials.extractAddress();
+      EthereumAddress address = _credentials.address;
       params.add(address);
     }
     params.add(EthereumAddress.fromHex(spender));
@@ -235,7 +235,7 @@ class Web3 {
         );
   }
 
-  Future<String> signOffChain(
+  String signOffChain(
     String from,
     String to,
     BigInt value,
@@ -243,7 +243,7 @@ class Web3 {
     String nonce,
     BigInt gasPrice,
     BigInt gasLimit,
-  ) async {
+  ) {
     final List<String> inputArr = [
       '0x19',
       '0x00',
@@ -258,7 +258,7 @@ class Web3 {
     String input = '0x' +
         inputArr.map((hexStr) => hexStr.toString().substring(2)).join('');
     Uint8List hash = keccak256(hexToBytes(input));
-    Uint8List signature = await _credentials.signPersonalMessage(hash);
+    Uint8List signature = _credentials.signPersonalMessageToUint8List(hash);
     return '0x' + HEX.encode(signature);
   }
 
@@ -299,7 +299,7 @@ class Web3 {
           ],
         );
 
-    String signature = await signOffChain(
+    String signature = signOffChain(
       _modules.transferManager,
       walletAddress,
       BigInt.from(0),
@@ -345,7 +345,7 @@ class Web3 {
             newModule,
           ],
         );
-    String signature = await signOffChain(
+    String signature = signOffChain(
       disableModuleAddress,
       walletAddress,
       BigInt.from(0),
@@ -408,7 +408,7 @@ class Web3 {
           ],
         );
 
-    String signature = await signOffChain(
+    String signature = signOffChain(
       _modules.transferManager,
       walletAddress,
       BigInt.from(0),
@@ -485,7 +485,7 @@ class Web3 {
             amount,
           ],
         );
-    String signature = await signOffChain(
+    String signature = signOffChain(
       _modules.transferManager,
       walletAddress,
       BigInt.from(0),
@@ -541,7 +541,7 @@ class Web3 {
             hexToBytes('0x'),
           ],
         );
-    String signature = await signOffChain(
+    String signature = signOffChain(
       nftTransferContractAddress,
       walletAddress,
       BigInt.from(0),
@@ -600,7 +600,7 @@ class Web3 {
             HEX.decode(data),
           ],
         );
-    String signature = await signOffChain(
+    String signature = signOffChain(
       _modules.transferManager,
       walletAddress,
       BigInt.from(0),
@@ -665,7 +665,7 @@ class Web3 {
           ],
         );
 
-    String signature = await signOffChain(
+    String signature = signOffChain(
       _modules.transferManager,
       walletAddress,
       BigInt.from(0),

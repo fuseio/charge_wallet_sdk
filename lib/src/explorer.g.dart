@@ -9,7 +9,10 @@ part of 'explorer.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _FuseExplorer implements FuseExplorer {
-  _FuseExplorer(this._dio, {this.baseUrl}) {
+  _FuseExplorer(
+    this._dio, {
+    this.baseUrl,
+  }) {
     baseUrl ??= 'https://explorer.fuse.io/api/';
   }
 
@@ -23,12 +26,19 @@ class _FuseExplorer implements FuseExplorer {
     final queryParameters = <String, dynamic>{r'address': address};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<TokenList>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, '?module=account&action=tokenlist',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<TokenList>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '?module=account&action=tokenlist',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = TokenList.fromJson(_result.data!);
     return value;
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wallet_modules.dart';
 
@@ -51,7 +51,8 @@ mixin _$WalletModules {
 abstract class $WalletModulesCopyWith<$Res> {
   factory $WalletModulesCopyWith(
           WalletModules value, $Res Function(WalletModules) then) =
-      _$WalletModulesCopyWithImpl<$Res>;
+      _$WalletModulesCopyWithImpl<$Res, WalletModules>;
+  @useResult
   $Res call(
       {@JsonKey(name: 'GuardianManager') String guardianManager,
       @JsonKey(name: 'LockManager') String lockManager,
@@ -66,69 +67,71 @@ abstract class $WalletModulesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WalletModulesCopyWithImpl<$Res>
+class _$WalletModulesCopyWithImpl<$Res, $Val extends WalletModules>
     implements $WalletModulesCopyWith<$Res> {
   _$WalletModulesCopyWithImpl(this._value, this._then);
 
-  final WalletModules _value;
   // ignore: unused_field
-  final $Res Function(WalletModules) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? guardianManager = freezed,
-    Object? lockManager = freezed,
-    Object? recoveryManager = freezed,
-    Object? approvedTransfer = freezed,
-    Object? tokenExchanger = freezed,
-    Object? communityManager = freezed,
-    Object? walletOwnershipManager = freezed,
-    Object? daiPointsManager = freezed,
-    Object? transferManager = freezed,
+    Object? guardianManager = null,
+    Object? lockManager = null,
+    Object? recoveryManager = null,
+    Object? approvedTransfer = null,
+    Object? tokenExchanger = null,
+    Object? communityManager = null,
+    Object? walletOwnershipManager = null,
+    Object? daiPointsManager = null,
+    Object? transferManager = null,
     Object? nftTransfer = freezed,
   }) {
     return _then(_value.copyWith(
-      guardianManager: guardianManager == freezed
+      guardianManager: null == guardianManager
           ? _value.guardianManager
           : guardianManager // ignore: cast_nullable_to_non_nullable
               as String,
-      lockManager: lockManager == freezed
+      lockManager: null == lockManager
           ? _value.lockManager
           : lockManager // ignore: cast_nullable_to_non_nullable
               as String,
-      recoveryManager: recoveryManager == freezed
+      recoveryManager: null == recoveryManager
           ? _value.recoveryManager
           : recoveryManager // ignore: cast_nullable_to_non_nullable
               as String,
-      approvedTransfer: approvedTransfer == freezed
+      approvedTransfer: null == approvedTransfer
           ? _value.approvedTransfer
           : approvedTransfer // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenExchanger: tokenExchanger == freezed
+      tokenExchanger: null == tokenExchanger
           ? _value.tokenExchanger
           : tokenExchanger // ignore: cast_nullable_to_non_nullable
               as String,
-      communityManager: communityManager == freezed
+      communityManager: null == communityManager
           ? _value.communityManager
           : communityManager // ignore: cast_nullable_to_non_nullable
               as String,
-      walletOwnershipManager: walletOwnershipManager == freezed
+      walletOwnershipManager: null == walletOwnershipManager
           ? _value.walletOwnershipManager
           : walletOwnershipManager // ignore: cast_nullable_to_non_nullable
               as String,
-      daiPointsManager: daiPointsManager == freezed
+      daiPointsManager: null == daiPointsManager
           ? _value.daiPointsManager
           : daiPointsManager // ignore: cast_nullable_to_non_nullable
               as String,
-      transferManager: transferManager == freezed
+      transferManager: null == transferManager
           ? _value.transferManager
           : transferManager // ignore: cast_nullable_to_non_nullable
               as String,
-      nftTransfer: nftTransfer == freezed
+      nftTransfer: freezed == nftTransfer
           ? _value.nftTransfer
           : nftTransfer // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -139,6 +142,7 @@ abstract class _$$_WalletModulesCopyWith<$Res>
           _$_WalletModules value, $Res Function(_$_WalletModules) then) =
       __$$_WalletModulesCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: 'GuardianManager') String guardianManager,
       @JsonKey(name: 'LockManager') String lockManager,
@@ -154,66 +158,64 @@ abstract class _$$_WalletModulesCopyWith<$Res>
 
 /// @nodoc
 class __$$_WalletModulesCopyWithImpl<$Res>
-    extends _$WalletModulesCopyWithImpl<$Res>
+    extends _$WalletModulesCopyWithImpl<$Res, _$_WalletModules>
     implements _$$_WalletModulesCopyWith<$Res> {
   __$$_WalletModulesCopyWithImpl(
       _$_WalletModules _value, $Res Function(_$_WalletModules) _then)
-      : super(_value, (v) => _then(v as _$_WalletModules));
+      : super(_value, _then);
 
-  @override
-  _$_WalletModules get _value => super._value as _$_WalletModules;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? guardianManager = freezed,
-    Object? lockManager = freezed,
-    Object? recoveryManager = freezed,
-    Object? approvedTransfer = freezed,
-    Object? tokenExchanger = freezed,
-    Object? communityManager = freezed,
-    Object? walletOwnershipManager = freezed,
-    Object? daiPointsManager = freezed,
-    Object? transferManager = freezed,
+    Object? guardianManager = null,
+    Object? lockManager = null,
+    Object? recoveryManager = null,
+    Object? approvedTransfer = null,
+    Object? tokenExchanger = null,
+    Object? communityManager = null,
+    Object? walletOwnershipManager = null,
+    Object? daiPointsManager = null,
+    Object? transferManager = null,
     Object? nftTransfer = freezed,
   }) {
     return _then(_$_WalletModules(
-      guardianManager: guardianManager == freezed
+      guardianManager: null == guardianManager
           ? _value.guardianManager
           : guardianManager // ignore: cast_nullable_to_non_nullable
               as String,
-      lockManager: lockManager == freezed
+      lockManager: null == lockManager
           ? _value.lockManager
           : lockManager // ignore: cast_nullable_to_non_nullable
               as String,
-      recoveryManager: recoveryManager == freezed
+      recoveryManager: null == recoveryManager
           ? _value.recoveryManager
           : recoveryManager // ignore: cast_nullable_to_non_nullable
               as String,
-      approvedTransfer: approvedTransfer == freezed
+      approvedTransfer: null == approvedTransfer
           ? _value.approvedTransfer
           : approvedTransfer // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenExchanger: tokenExchanger == freezed
+      tokenExchanger: null == tokenExchanger
           ? _value.tokenExchanger
           : tokenExchanger // ignore: cast_nullable_to_non_nullable
               as String,
-      communityManager: communityManager == freezed
+      communityManager: null == communityManager
           ? _value.communityManager
           : communityManager // ignore: cast_nullable_to_non_nullable
               as String,
-      walletOwnershipManager: walletOwnershipManager == freezed
+      walletOwnershipManager: null == walletOwnershipManager
           ? _value.walletOwnershipManager
           : walletOwnershipManager // ignore: cast_nullable_to_non_nullable
               as String,
-      daiPointsManager: daiPointsManager == freezed
+      daiPointsManager: null == daiPointsManager
           ? _value.daiPointsManager
           : daiPointsManager // ignore: cast_nullable_to_non_nullable
               as String,
-      transferManager: transferManager == freezed
+      transferManager: null == transferManager
           ? _value.transferManager
           : transferManager // ignore: cast_nullable_to_non_nullable
               as String,
-      nftTransfer: nftTransfer == freezed
+      nftTransfer: freezed == nftTransfer
           ? _value.nftTransfer
           : nftTransfer // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -290,45 +292,46 @@ class _$_WalletModules implements _WalletModules {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WalletModules &&
-            const DeepCollectionEquality()
-                .equals(other.guardianManager, guardianManager) &&
-            const DeepCollectionEquality()
-                .equals(other.lockManager, lockManager) &&
-            const DeepCollectionEquality()
-                .equals(other.recoveryManager, recoveryManager) &&
-            const DeepCollectionEquality()
-                .equals(other.approvedTransfer, approvedTransfer) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenExchanger, tokenExchanger) &&
-            const DeepCollectionEquality()
-                .equals(other.communityManager, communityManager) &&
-            const DeepCollectionEquality()
-                .equals(other.walletOwnershipManager, walletOwnershipManager) &&
-            const DeepCollectionEquality()
-                .equals(other.daiPointsManager, daiPointsManager) &&
-            const DeepCollectionEquality()
-                .equals(other.transferManager, transferManager) &&
-            const DeepCollectionEquality()
-                .equals(other.nftTransfer, nftTransfer));
+            (identical(other.guardianManager, guardianManager) ||
+                other.guardianManager == guardianManager) &&
+            (identical(other.lockManager, lockManager) ||
+                other.lockManager == lockManager) &&
+            (identical(other.recoveryManager, recoveryManager) ||
+                other.recoveryManager == recoveryManager) &&
+            (identical(other.approvedTransfer, approvedTransfer) ||
+                other.approvedTransfer == approvedTransfer) &&
+            (identical(other.tokenExchanger, tokenExchanger) ||
+                other.tokenExchanger == tokenExchanger) &&
+            (identical(other.communityManager, communityManager) ||
+                other.communityManager == communityManager) &&
+            (identical(other.walletOwnershipManager, walletOwnershipManager) ||
+                other.walletOwnershipManager == walletOwnershipManager) &&
+            (identical(other.daiPointsManager, daiPointsManager) ||
+                other.daiPointsManager == daiPointsManager) &&
+            (identical(other.transferManager, transferManager) ||
+                other.transferManager == transferManager) &&
+            (identical(other.nftTransfer, nftTransfer) ||
+                other.nftTransfer == nftTransfer));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(guardianManager),
-      const DeepCollectionEquality().hash(lockManager),
-      const DeepCollectionEquality().hash(recoveryManager),
-      const DeepCollectionEquality().hash(approvedTransfer),
-      const DeepCollectionEquality().hash(tokenExchanger),
-      const DeepCollectionEquality().hash(communityManager),
-      const DeepCollectionEquality().hash(walletOwnershipManager),
-      const DeepCollectionEquality().hash(daiPointsManager),
-      const DeepCollectionEquality().hash(transferManager),
-      const DeepCollectionEquality().hash(nftTransfer));
+      guardianManager,
+      lockManager,
+      recoveryManager,
+      approvedTransfer,
+      tokenExchanger,
+      communityManager,
+      walletOwnershipManager,
+      daiPointsManager,
+      transferManager,
+      nftTransfer);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WalletModulesCopyWith<_$_WalletModules> get copyWith =>
       __$$_WalletModulesCopyWithImpl<_$_WalletModules>(this, _$identity);
 

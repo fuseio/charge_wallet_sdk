@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'trade.dart';
 
@@ -37,7 +37,8 @@ mixin _$Trade {
 /// @nodoc
 abstract class $TradeCopyWith<$Res> {
   factory $TradeCopyWith(Trade value, $Res Function(Trade) then) =
-      _$TradeCopyWithImpl<$Res>;
+      _$TradeCopyWithImpl<$Res, Trade>;
+  @useResult
   $Res call(
       {String inputAmount,
       String outputAmount,
@@ -50,58 +51,61 @@ abstract class $TradeCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TradeCopyWithImpl<$Res> implements $TradeCopyWith<$Res> {
+class _$TradeCopyWithImpl<$Res, $Val extends Trade>
+    implements $TradeCopyWith<$Res> {
   _$TradeCopyWithImpl(this._value, this._then);
 
-  final Trade _value;
   // ignore: unused_field
-  final $Res Function(Trade) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? inputAmount = freezed,
-    Object? outputAmount = freezed,
-    Object? route = freezed,
-    Object? inputToken = freezed,
-    Object? outputToken = freezed,
-    Object? executionPrice = freezed,
-    Object? nextMidPrice = freezed,
-    Object? priceImpact = freezed,
+    Object? inputAmount = null,
+    Object? outputAmount = null,
+    Object? route = null,
+    Object? inputToken = null,
+    Object? outputToken = null,
+    Object? executionPrice = null,
+    Object? nextMidPrice = null,
+    Object? priceImpact = null,
   }) {
     return _then(_value.copyWith(
-      inputAmount: inputAmount == freezed
+      inputAmount: null == inputAmount
           ? _value.inputAmount
           : inputAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      outputAmount: outputAmount == freezed
+      outputAmount: null == outputAmount
           ? _value.outputAmount
           : outputAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      route: route == freezed
+      route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      inputToken: inputToken == freezed
+      inputToken: null == inputToken
           ? _value.inputToken
           : inputToken // ignore: cast_nullable_to_non_nullable
               as String,
-      outputToken: outputToken == freezed
+      outputToken: null == outputToken
           ? _value.outputToken
           : outputToken // ignore: cast_nullable_to_non_nullable
               as String,
-      executionPrice: executionPrice == freezed
+      executionPrice: null == executionPrice
           ? _value.executionPrice
           : executionPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      nextMidPrice: nextMidPrice == freezed
+      nextMidPrice: null == nextMidPrice
           ? _value.nextMidPrice
           : nextMidPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      priceImpact: priceImpact == freezed
+      priceImpact: null == priceImpact
           ? _value.priceImpact
           : priceImpact // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -110,6 +114,7 @@ abstract class _$$_TradeCopyWith<$Res> implements $TradeCopyWith<$Res> {
   factory _$$_TradeCopyWith(_$_Trade value, $Res Function(_$_Trade) then) =
       __$$_TradeCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String inputAmount,
       String outputAmount,
@@ -122,55 +127,53 @@ abstract class _$$_TradeCopyWith<$Res> implements $TradeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TradeCopyWithImpl<$Res> extends _$TradeCopyWithImpl<$Res>
+class __$$_TradeCopyWithImpl<$Res> extends _$TradeCopyWithImpl<$Res, _$_Trade>
     implements _$$_TradeCopyWith<$Res> {
   __$$_TradeCopyWithImpl(_$_Trade _value, $Res Function(_$_Trade) _then)
-      : super(_value, (v) => _then(v as _$_Trade));
+      : super(_value, _then);
 
-  @override
-  _$_Trade get _value => super._value as _$_Trade;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? inputAmount = freezed,
-    Object? outputAmount = freezed,
-    Object? route = freezed,
-    Object? inputToken = freezed,
-    Object? outputToken = freezed,
-    Object? executionPrice = freezed,
-    Object? nextMidPrice = freezed,
-    Object? priceImpact = freezed,
+    Object? inputAmount = null,
+    Object? outputAmount = null,
+    Object? route = null,
+    Object? inputToken = null,
+    Object? outputToken = null,
+    Object? executionPrice = null,
+    Object? nextMidPrice = null,
+    Object? priceImpact = null,
   }) {
     return _then(_$_Trade(
-      inputAmount: inputAmount == freezed
+      inputAmount: null == inputAmount
           ? _value.inputAmount
           : inputAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      outputAmount: outputAmount == freezed
+      outputAmount: null == outputAmount
           ? _value.outputAmount
           : outputAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      route: route == freezed
+      route: null == route
           ? _value.route
           : route // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      inputToken: inputToken == freezed
+      inputToken: null == inputToken
           ? _value.inputToken
           : inputToken // ignore: cast_nullable_to_non_nullable
               as String,
-      outputToken: outputToken == freezed
+      outputToken: null == outputToken
           ? _value.outputToken
           : outputToken // ignore: cast_nullable_to_non_nullable
               as String,
-      executionPrice: executionPrice == freezed
+      executionPrice: null == executionPrice
           ? _value.executionPrice
           : executionPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      nextMidPrice: nextMidPrice == freezed
+      nextMidPrice: null == nextMidPrice
           ? _value.nextMidPrice
           : nextMidPrice // ignore: cast_nullable_to_non_nullable
               as String,
-      priceImpact: priceImpact == freezed
+      priceImpact: null == priceImpact
           ? _value.priceImpact
           : priceImpact // ignore: cast_nullable_to_non_nullable
               as String,
@@ -221,38 +224,39 @@ class _$_Trade implements _Trade {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Trade &&
-            const DeepCollectionEquality()
-                .equals(other.inputAmount, inputAmount) &&
-            const DeepCollectionEquality()
-                .equals(other.outputAmount, outputAmount) &&
+            (identical(other.inputAmount, inputAmount) ||
+                other.inputAmount == inputAmount) &&
+            (identical(other.outputAmount, outputAmount) ||
+                other.outputAmount == outputAmount) &&
             const DeepCollectionEquality().equals(other.route, route) &&
-            const DeepCollectionEquality()
-                .equals(other.inputToken, inputToken) &&
-            const DeepCollectionEquality()
-                .equals(other.outputToken, outputToken) &&
-            const DeepCollectionEquality()
-                .equals(other.executionPrice, executionPrice) &&
-            const DeepCollectionEquality()
-                .equals(other.nextMidPrice, nextMidPrice) &&
-            const DeepCollectionEquality()
-                .equals(other.priceImpact, priceImpact));
+            (identical(other.inputToken, inputToken) ||
+                other.inputToken == inputToken) &&
+            (identical(other.outputToken, outputToken) ||
+                other.outputToken == outputToken) &&
+            (identical(other.executionPrice, executionPrice) ||
+                other.executionPrice == executionPrice) &&
+            (identical(other.nextMidPrice, nextMidPrice) ||
+                other.nextMidPrice == nextMidPrice) &&
+            (identical(other.priceImpact, priceImpact) ||
+                other.priceImpact == priceImpact));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(inputAmount),
-      const DeepCollectionEquality().hash(outputAmount),
+      inputAmount,
+      outputAmount,
       const DeepCollectionEquality().hash(route),
-      const DeepCollectionEquality().hash(inputToken),
-      const DeepCollectionEquality().hash(outputToken),
-      const DeepCollectionEquality().hash(executionPrice),
-      const DeepCollectionEquality().hash(nextMidPrice),
-      const DeepCollectionEquality().hash(priceImpact));
+      inputToken,
+      outputToken,
+      executionPrice,
+      nextMidPrice,
+      priceImpact);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TradeCopyWith<_$_Trade> get copyWith =>
       __$$_TradeCopyWithImpl<_$_Trade>(this, _$identity);
 

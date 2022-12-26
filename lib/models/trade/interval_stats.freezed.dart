@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'interval_stats.dart';
 
@@ -35,7 +35,8 @@ mixin _$IntervalStats {
 abstract class $IntervalStatsCopyWith<$Res> {
   factory $IntervalStatsCopyWith(
           IntervalStats value, $Res Function(IntervalStats) then) =
-      _$IntervalStatsCopyWithImpl<$Res>;
+      _$IntervalStatsCopyWithImpl<$Res, IntervalStats>;
+  @useResult
   $Res call(
       {num timestamp,
       double priceChange,
@@ -44,39 +45,41 @@ abstract class $IntervalStatsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$IntervalStatsCopyWithImpl<$Res>
+class _$IntervalStatsCopyWithImpl<$Res, $Val extends IntervalStats>
     implements $IntervalStatsCopyWith<$Res> {
   _$IntervalStatsCopyWithImpl(this._value, this._then);
 
-  final IntervalStats _value;
   // ignore: unused_field
-  final $Res Function(IntervalStats) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? timestamp = freezed,
-    Object? priceChange = freezed,
-    Object? previousPrice = freezed,
-    Object? currentPrice = freezed,
+    Object? timestamp = null,
+    Object? priceChange = null,
+    Object? previousPrice = null,
+    Object? currentPrice = null,
   }) {
     return _then(_value.copyWith(
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as num,
-      priceChange: priceChange == freezed
+      priceChange: null == priceChange
           ? _value.priceChange
           : priceChange // ignore: cast_nullable_to_non_nullable
               as double,
-      previousPrice: previousPrice == freezed
+      previousPrice: null == previousPrice
           ? _value.previousPrice
           : previousPrice // ignore: cast_nullable_to_non_nullable
               as double,
-      currentPrice: currentPrice == freezed
+      currentPrice: null == currentPrice
           ? _value.currentPrice
           : currentPrice // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -87,6 +90,7 @@ abstract class _$$_IntervalStatsCopyWith<$Res>
           _$_IntervalStats value, $Res Function(_$_IntervalStats) then) =
       __$$_IntervalStatsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {num timestamp,
       double priceChange,
@@ -96,36 +100,34 @@ abstract class _$$_IntervalStatsCopyWith<$Res>
 
 /// @nodoc
 class __$$_IntervalStatsCopyWithImpl<$Res>
-    extends _$IntervalStatsCopyWithImpl<$Res>
+    extends _$IntervalStatsCopyWithImpl<$Res, _$_IntervalStats>
     implements _$$_IntervalStatsCopyWith<$Res> {
   __$$_IntervalStatsCopyWithImpl(
       _$_IntervalStats _value, $Res Function(_$_IntervalStats) _then)
-      : super(_value, (v) => _then(v as _$_IntervalStats));
+      : super(_value, _then);
 
-  @override
-  _$_IntervalStats get _value => super._value as _$_IntervalStats;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? timestamp = freezed,
-    Object? priceChange = freezed,
-    Object? previousPrice = freezed,
-    Object? currentPrice = freezed,
+    Object? timestamp = null,
+    Object? priceChange = null,
+    Object? previousPrice = null,
+    Object? currentPrice = null,
   }) {
     return _then(_$_IntervalStats(
-      timestamp: timestamp == freezed
+      timestamp: null == timestamp
           ? _value.timestamp
           : timestamp // ignore: cast_nullable_to_non_nullable
               as num,
-      priceChange: priceChange == freezed
+      priceChange: null == priceChange
           ? _value.priceChange
           : priceChange // ignore: cast_nullable_to_non_nullable
               as double,
-      previousPrice: previousPrice == freezed
+      previousPrice: null == previousPrice
           ? _value.previousPrice
           : previousPrice // ignore: cast_nullable_to_non_nullable
               as double,
-      currentPrice: currentPrice == freezed
+      currentPrice: null == currentPrice
           ? _value.currentPrice
           : currentPrice // ignore: cast_nullable_to_non_nullable
               as double,
@@ -164,26 +166,24 @@ class _$_IntervalStats implements _IntervalStats {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_IntervalStats &&
-            const DeepCollectionEquality().equals(other.timestamp, timestamp) &&
-            const DeepCollectionEquality()
-                .equals(other.priceChange, priceChange) &&
-            const DeepCollectionEquality()
-                .equals(other.previousPrice, previousPrice) &&
-            const DeepCollectionEquality()
-                .equals(other.currentPrice, currentPrice));
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp) &&
+            (identical(other.priceChange, priceChange) ||
+                other.priceChange == priceChange) &&
+            (identical(other.previousPrice, previousPrice) ||
+                other.previousPrice == previousPrice) &&
+            (identical(other.currentPrice, currentPrice) ||
+                other.currentPrice == currentPrice));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(timestamp),
-      const DeepCollectionEquality().hash(priceChange),
-      const DeepCollectionEquality().hash(previousPrice),
-      const DeepCollectionEquality().hash(currentPrice));
+      runtimeType, timestamp, priceChange, previousPrice, currentPrice);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_IntervalStatsCopyWith<_$_IntervalStats> get copyWith =>
       __$$_IntervalStatsCopyWithImpl<_$_IntervalStats>(this, _$identity);
 

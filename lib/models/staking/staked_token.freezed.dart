@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'staked_token.dart';
 
@@ -38,7 +38,8 @@ mixin _$StakedToken {
 abstract class $StakedTokenCopyWith<$Res> {
   factory $StakedTokenCopyWith(
           StakedToken value, $Res Function(StakedToken) then) =
-      _$StakedTokenCopyWithImpl<$Res>;
+      _$StakedTokenCopyWithImpl<$Res, StakedToken>;
+  @useResult
   $Res call(
       {String tokenAddress,
       String tokenSymbol,
@@ -50,53 +51,56 @@ abstract class $StakedTokenCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StakedTokenCopyWithImpl<$Res> implements $StakedTokenCopyWith<$Res> {
+class _$StakedTokenCopyWithImpl<$Res, $Val extends StakedToken>
+    implements $StakedTokenCopyWith<$Res> {
   _$StakedTokenCopyWithImpl(this._value, this._then);
 
-  final StakedToken _value;
   // ignore: unused_field
-  final $Res Function(StakedToken) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenAddress = freezed,
-    Object? tokenSymbol = freezed,
-    Object? tokenName = freezed,
-    Object? tokenLogoURI = freezed,
-    Object? stakedAmount = freezed,
-    Object? stakedAmountUSD = freezed,
-    Object? earnedAmountUSD = freezed,
+    Object? tokenAddress = null,
+    Object? tokenSymbol = null,
+    Object? tokenName = null,
+    Object? tokenLogoURI = null,
+    Object? stakedAmount = null,
+    Object? stakedAmountUSD = null,
+    Object? earnedAmountUSD = null,
   }) {
     return _then(_value.copyWith(
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenSymbol: tokenSymbol == freezed
+      tokenSymbol: null == tokenSymbol
           ? _value.tokenSymbol
           : tokenSymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenName: tokenName == freezed
+      tokenName: null == tokenName
           ? _value.tokenName
           : tokenName // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenLogoURI: tokenLogoURI == freezed
+      tokenLogoURI: null == tokenLogoURI
           ? _value.tokenLogoURI
           : tokenLogoURI // ignore: cast_nullable_to_non_nullable
               as String,
-      stakedAmount: stakedAmount == freezed
+      stakedAmount: null == stakedAmount
           ? _value.stakedAmount
           : stakedAmount // ignore: cast_nullable_to_non_nullable
               as double,
-      stakedAmountUSD: stakedAmountUSD == freezed
+      stakedAmountUSD: null == stakedAmountUSD
           ? _value.stakedAmountUSD
           : stakedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      earnedAmountUSD: earnedAmountUSD == freezed
+      earnedAmountUSD: null == earnedAmountUSD
           ? _value.earnedAmountUSD
           : earnedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -107,6 +111,7 @@ abstract class _$$_StakedTokenCopyWith<$Res>
           _$_StakedToken value, $Res Function(_$_StakedToken) then) =
       __$$_StakedTokenCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String tokenAddress,
       String tokenSymbol,
@@ -118,51 +123,50 @@ abstract class _$$_StakedTokenCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_StakedTokenCopyWithImpl<$Res> extends _$StakedTokenCopyWithImpl<$Res>
+class __$$_StakedTokenCopyWithImpl<$Res>
+    extends _$StakedTokenCopyWithImpl<$Res, _$_StakedToken>
     implements _$$_StakedTokenCopyWith<$Res> {
   __$$_StakedTokenCopyWithImpl(
       _$_StakedToken _value, $Res Function(_$_StakedToken) _then)
-      : super(_value, (v) => _then(v as _$_StakedToken));
+      : super(_value, _then);
 
-  @override
-  _$_StakedToken get _value => super._value as _$_StakedToken;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? tokenAddress = freezed,
-    Object? tokenSymbol = freezed,
-    Object? tokenName = freezed,
-    Object? tokenLogoURI = freezed,
-    Object? stakedAmount = freezed,
-    Object? stakedAmountUSD = freezed,
-    Object? earnedAmountUSD = freezed,
+    Object? tokenAddress = null,
+    Object? tokenSymbol = null,
+    Object? tokenName = null,
+    Object? tokenLogoURI = null,
+    Object? stakedAmount = null,
+    Object? stakedAmountUSD = null,
+    Object? earnedAmountUSD = null,
   }) {
     return _then(_$_StakedToken(
-      tokenAddress: tokenAddress == freezed
+      tokenAddress: null == tokenAddress
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenSymbol: tokenSymbol == freezed
+      tokenSymbol: null == tokenSymbol
           ? _value.tokenSymbol
           : tokenSymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenName: tokenName == freezed
+      tokenName: null == tokenName
           ? _value.tokenName
           : tokenName // ignore: cast_nullable_to_non_nullable
               as String,
-      tokenLogoURI: tokenLogoURI == freezed
+      tokenLogoURI: null == tokenLogoURI
           ? _value.tokenLogoURI
           : tokenLogoURI // ignore: cast_nullable_to_non_nullable
               as String,
-      stakedAmount: stakedAmount == freezed
+      stakedAmount: null == stakedAmount
           ? _value.stakedAmount
           : stakedAmount // ignore: cast_nullable_to_non_nullable
               as double,
-      stakedAmountUSD: stakedAmountUSD == freezed
+      stakedAmountUSD: null == stakedAmountUSD
           ? _value.stakedAmountUSD
           : stakedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      earnedAmountUSD: earnedAmountUSD == freezed
+      earnedAmountUSD: null == earnedAmountUSD
           ? _value.earnedAmountUSD
           : earnedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
@@ -210,35 +214,30 @@ class _$_StakedToken implements _StakedToken {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StakedToken &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAddress, tokenAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenSymbol, tokenSymbol) &&
-            const DeepCollectionEquality().equals(other.tokenName, tokenName) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenLogoURI, tokenLogoURI) &&
-            const DeepCollectionEquality()
-                .equals(other.stakedAmount, stakedAmount) &&
-            const DeepCollectionEquality()
-                .equals(other.stakedAmountUSD, stakedAmountUSD) &&
-            const DeepCollectionEquality()
-                .equals(other.earnedAmountUSD, earnedAmountUSD));
+            (identical(other.tokenAddress, tokenAddress) ||
+                other.tokenAddress == tokenAddress) &&
+            (identical(other.tokenSymbol, tokenSymbol) ||
+                other.tokenSymbol == tokenSymbol) &&
+            (identical(other.tokenName, tokenName) ||
+                other.tokenName == tokenName) &&
+            (identical(other.tokenLogoURI, tokenLogoURI) ||
+                other.tokenLogoURI == tokenLogoURI) &&
+            (identical(other.stakedAmount, stakedAmount) ||
+                other.stakedAmount == stakedAmount) &&
+            (identical(other.stakedAmountUSD, stakedAmountUSD) ||
+                other.stakedAmountUSD == stakedAmountUSD) &&
+            (identical(other.earnedAmountUSD, earnedAmountUSD) ||
+                other.earnedAmountUSD == earnedAmountUSD));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tokenAddress),
-      const DeepCollectionEquality().hash(tokenSymbol),
-      const DeepCollectionEquality().hash(tokenName),
-      const DeepCollectionEquality().hash(tokenLogoURI),
-      const DeepCollectionEquality().hash(stakedAmount),
-      const DeepCollectionEquality().hash(stakedAmountUSD),
-      const DeepCollectionEquality().hash(earnedAmountUSD));
+  int get hashCode => Object.hash(runtimeType, tokenAddress, tokenSymbol,
+      tokenName, tokenLogoURI, stakedAmount, stakedAmountUSD, earnedAmountUSD);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StakedTokenCopyWith<_$_StakedToken> get copyWith =>
       __$$_StakedTokenCopyWithImpl<_$_StakedToken>(this, _$identity);
 
@@ -303,7 +302,8 @@ mixin _$StakedTokenResponse {
 abstract class $StakedTokenResponseCopyWith<$Res> {
   factory $StakedTokenResponseCopyWith(
           StakedTokenResponse value, $Res Function(StakedTokenResponse) then) =
-      _$StakedTokenResponseCopyWithImpl<$Res>;
+      _$StakedTokenResponseCopyWithImpl<$Res, StakedTokenResponse>;
+  @useResult
   $Res call(
       {double totalStakedAmountUSD,
       double totalEarnedAmountUSD,
@@ -311,34 +311,36 @@ abstract class $StakedTokenResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StakedTokenResponseCopyWithImpl<$Res>
+class _$StakedTokenResponseCopyWithImpl<$Res, $Val extends StakedTokenResponse>
     implements $StakedTokenResponseCopyWith<$Res> {
   _$StakedTokenResponseCopyWithImpl(this._value, this._then);
 
-  final StakedTokenResponse _value;
   // ignore: unused_field
-  final $Res Function(StakedTokenResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalStakedAmountUSD = freezed,
-    Object? totalEarnedAmountUSD = freezed,
-    Object? stakedTokens = freezed,
+    Object? totalStakedAmountUSD = null,
+    Object? totalEarnedAmountUSD = null,
+    Object? stakedTokens = null,
   }) {
     return _then(_value.copyWith(
-      totalStakedAmountUSD: totalStakedAmountUSD == freezed
+      totalStakedAmountUSD: null == totalStakedAmountUSD
           ? _value.totalStakedAmountUSD
           : totalStakedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      totalEarnedAmountUSD: totalEarnedAmountUSD == freezed
+      totalEarnedAmountUSD: null == totalEarnedAmountUSD
           ? _value.totalEarnedAmountUSD
           : totalEarnedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      stakedTokens: stakedTokens == freezed
+      stakedTokens: null == stakedTokens
           ? _value.stakedTokens
           : stakedTokens // ignore: cast_nullable_to_non_nullable
               as List<StakedToken>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -349,6 +351,7 @@ abstract class _$$_StakedTokenResponseCopyWith<$Res>
           $Res Function(_$_StakedTokenResponse) then) =
       __$$_StakedTokenResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {double totalStakedAmountUSD,
       double totalEarnedAmountUSD,
@@ -357,31 +360,29 @@ abstract class _$$_StakedTokenResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_StakedTokenResponseCopyWithImpl<$Res>
-    extends _$StakedTokenResponseCopyWithImpl<$Res>
+    extends _$StakedTokenResponseCopyWithImpl<$Res, _$_StakedTokenResponse>
     implements _$$_StakedTokenResponseCopyWith<$Res> {
   __$$_StakedTokenResponseCopyWithImpl(_$_StakedTokenResponse _value,
       $Res Function(_$_StakedTokenResponse) _then)
-      : super(_value, (v) => _then(v as _$_StakedTokenResponse));
+      : super(_value, _then);
 
-  @override
-  _$_StakedTokenResponse get _value => super._value as _$_StakedTokenResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalStakedAmountUSD = freezed,
-    Object? totalEarnedAmountUSD = freezed,
-    Object? stakedTokens = freezed,
+    Object? totalStakedAmountUSD = null,
+    Object? totalEarnedAmountUSD = null,
+    Object? stakedTokens = null,
   }) {
     return _then(_$_StakedTokenResponse(
-      totalStakedAmountUSD: totalStakedAmountUSD == freezed
+      totalStakedAmountUSD: null == totalStakedAmountUSD
           ? _value.totalStakedAmountUSD
           : totalStakedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      totalEarnedAmountUSD: totalEarnedAmountUSD == freezed
+      totalEarnedAmountUSD: null == totalEarnedAmountUSD
           ? _value.totalEarnedAmountUSD
           : totalEarnedAmountUSD // ignore: cast_nullable_to_non_nullable
               as double,
-      stakedTokens: stakedTokens == freezed
+      stakedTokens: null == stakedTokens
           ? _value.stakedTokens
           : stakedTokens // ignore: cast_nullable_to_non_nullable
               as List<StakedToken>,
@@ -417,24 +418,22 @@ class _$_StakedTokenResponse implements _StakedTokenResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_StakedTokenResponse &&
-            const DeepCollectionEquality()
-                .equals(other.totalStakedAmountUSD, totalStakedAmountUSD) &&
-            const DeepCollectionEquality()
-                .equals(other.totalEarnedAmountUSD, totalEarnedAmountUSD) &&
+            (identical(other.totalStakedAmountUSD, totalStakedAmountUSD) ||
+                other.totalStakedAmountUSD == totalStakedAmountUSD) &&
+            (identical(other.totalEarnedAmountUSD, totalEarnedAmountUSD) ||
+                other.totalEarnedAmountUSD == totalEarnedAmountUSD) &&
             const DeepCollectionEquality()
                 .equals(other.stakedTokens, stakedTokens));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(totalStakedAmountUSD),
-      const DeepCollectionEquality().hash(totalEarnedAmountUSD),
-      const DeepCollectionEquality().hash(stakedTokens));
+  int get hashCode => Object.hash(runtimeType, totalStakedAmountUSD,
+      totalEarnedAmountUSD, const DeepCollectionEquality().hash(stakedTokens));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StakedTokenResponseCopyWith<_$_StakedTokenResponse> get copyWith =>
       __$$_StakedTokenResponseCopyWithImpl<_$_StakedTokenResponse>(
           this, _$identity);

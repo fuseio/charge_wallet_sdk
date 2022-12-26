@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'trade_call_parameters.dart';
 
@@ -35,7 +35,8 @@ mixin _$TradeCallParameters {
 abstract class $TradeCallParametersCopyWith<$Res> {
   factory $TradeCallParametersCopyWith(
           TradeCallParameters value, $Res Function(TradeCallParameters) then) =
-      _$TradeCallParametersCopyWithImpl<$Res>;
+      _$TradeCallParametersCopyWithImpl<$Res, TradeCallParameters>;
+  @useResult
   $Res call(
       {String methodName,
       List<dynamic> args,
@@ -44,39 +45,41 @@ abstract class $TradeCallParametersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TradeCallParametersCopyWithImpl<$Res>
+class _$TradeCallParametersCopyWithImpl<$Res, $Val extends TradeCallParameters>
     implements $TradeCallParametersCopyWith<$Res> {
   _$TradeCallParametersCopyWithImpl(this._value, this._then);
 
-  final TradeCallParameters _value;
   // ignore: unused_field
-  final $Res Function(TradeCallParameters) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? methodName = freezed,
-    Object? args = freezed,
-    Object? value = freezed,
-    Object? rawTxn = freezed,
+    Object? methodName = null,
+    Object? args = null,
+    Object? value = null,
+    Object? rawTxn = null,
   }) {
     return _then(_value.copyWith(
-      methodName: methodName == freezed
+      methodName: null == methodName
           ? _value.methodName
           : methodName // ignore: cast_nullable_to_non_nullable
               as String,
-      args: args == freezed
+      args: null == args
           ? _value.args
           : args // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      rawTxn: rawTxn == freezed
+      rawTxn: null == rawTxn
           ? _value.rawTxn
           : rawTxn // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -87,6 +90,7 @@ abstract class _$$_TradeCallParametersCopyWith<$Res>
           $Res Function(_$_TradeCallParameters) then) =
       __$$_TradeCallParametersCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String methodName,
       List<dynamic> args,
@@ -96,36 +100,34 @@ abstract class _$$_TradeCallParametersCopyWith<$Res>
 
 /// @nodoc
 class __$$_TradeCallParametersCopyWithImpl<$Res>
-    extends _$TradeCallParametersCopyWithImpl<$Res>
+    extends _$TradeCallParametersCopyWithImpl<$Res, _$_TradeCallParameters>
     implements _$$_TradeCallParametersCopyWith<$Res> {
   __$$_TradeCallParametersCopyWithImpl(_$_TradeCallParameters _value,
       $Res Function(_$_TradeCallParameters) _then)
-      : super(_value, (v) => _then(v as _$_TradeCallParameters));
+      : super(_value, _then);
 
-  @override
-  _$_TradeCallParameters get _value => super._value as _$_TradeCallParameters;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? methodName = freezed,
-    Object? args = freezed,
-    Object? value = freezed,
-    Object? rawTxn = freezed,
+    Object? methodName = null,
+    Object? args = null,
+    Object? value = null,
+    Object? rawTxn = null,
   }) {
     return _then(_$_TradeCallParameters(
-      methodName: methodName == freezed
+      methodName: null == methodName
           ? _value.methodName
           : methodName // ignore: cast_nullable_to_non_nullable
               as String,
-      args: args == freezed
+      args: null == args
           ? _value.args
           : args // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-      rawTxn: rawTxn == freezed
+      rawTxn: null == rawTxn
           ? _value.rawTxn
           : rawTxn // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
@@ -164,10 +166,10 @@ class _$_TradeCallParameters implements _TradeCallParameters {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TradeCallParameters &&
-            const DeepCollectionEquality()
-                .equals(other.methodName, methodName) &&
+            (identical(other.methodName, methodName) ||
+                other.methodName == methodName) &&
             const DeepCollectionEquality().equals(other.args, args) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
+            (identical(other.value, value) || other.value == value) &&
             const DeepCollectionEquality().equals(other.rawTxn, rawTxn));
   }
 
@@ -175,13 +177,14 @@ class _$_TradeCallParameters implements _TradeCallParameters {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(methodName),
+      methodName,
       const DeepCollectionEquality().hash(args),
-      const DeepCollectionEquality().hash(value),
+      value,
       const DeepCollectionEquality().hash(rawTxn));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TradeCallParametersCopyWith<_$_TradeCallParameters> get copyWith =>
       __$$_TradeCallParametersCopyWithImpl<_$_TradeCallParameters>(
           this, _$identity);
