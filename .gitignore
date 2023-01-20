@@ -12,4 +12,10 @@ pubspec.lock
 # If you don't generate documentation locally you can remove this line.
 doc/api/
 
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
 launch.json
