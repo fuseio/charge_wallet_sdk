@@ -1,3 +1,9 @@
+# v0.0.2+7
+
+### Updates
+
+* Upgrade graphql package, Thanks to [Samet Sahin](https://github.com/SametSahin10)
+
 # v0.0.2+6
 
 ### Deprecated
