@@ -1,3 +1,9 @@
+# v0.0.2+8
+
+### Updates
+
+* New property in the StakingOption - `unStakeTokenAddress`.
+
 # v0.0.2+7
 
 ### Updates
