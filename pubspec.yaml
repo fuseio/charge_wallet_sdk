@@ -1,6 +1,6 @@
 name: charge_wallet_sdk
 description: SDK for Charge Wallet API
-version: 0.0.2+8
+version: 0.0.2+9
 repository: https://github.com/fuseio/charge_wallet_sdk
 homepage: https://docs.chargeweb3.com/docs/overview-2
 environment:
