@@ -1,3 +1,9 @@
+# v0.0.2+9
+
+### Updates
+
+* New property in the StakedToken - `unStakeTokenAddress`.
+
 # v0.0.2+8
 
 ### Updates
